@@ -3,6 +3,7 @@ extends KinematicBody2D
 export (int) var dist_min
 export (int) var enemy_velocity
 export (int) var gravity
+export (int) var damage = 30
 var screen_size
 onready var player = get_node("/root/Node2D/Player")
 
@@ -22,3 +23,7 @@ func _physics_process(delta):
 		velocity.x *= enemy_velocity
 	velocity.y += gravity * delta
 	move_and_slide(velocity, Vector2(0, -1))
+
+func _on_Area2D_body_entered(body):
+	if body.has_method("get_input"):
+		body.life -= 30

@@ -3,7 +3,9 @@ extends KinematicBody2D
 export (int) var run_speed = 100
 export (int) var jump_speed = -550
 export (int) var gravity = 1200
+export (int) var life = 300
 
+signal hit
 var velocity = Vector2()
 var jumping = false
 var screen_size
