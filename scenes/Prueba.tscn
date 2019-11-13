@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://objects/Jugador.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Panel_1.tres" type="TileSet" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Jugador" parent="." instance=ExtResource( 1 )]
+position = Vector2( -92.7348, -162.416 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+format = 1
+tile_data = PoolIntArray( -458759, 2, 0, -458758, 2, 0, -393199, 0, 0, -262151, 2, 0, -262150, 2, 0, -196595, 0, 0, -65543, 2, 0, -65542, 2, 0, 65531, 0, 0, 65534, 0, 0, 1, 0, 0, 4, 0, 0, 7, 0, 0, 10, 0, 0, 13, 0, 0, 16, 0, 0, 19, 0, 0 )
+
