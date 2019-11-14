@@ -1,29 +1,215 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scenes/enemy/Enemy.gd" type="Script" id=1]
-[ext_resource path="res://art/enemy/enemyFloating_1.png" type="Texture" id=2]
+[ext_resource path="res://art/enemy/Minotaur - Sprite Sheet.png" type="Texture" id=2]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 58.6728
+[sub_resource type="Animation" id=1]
+resource_name = "attack1"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 33, 41 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1.14476, 12.7418 ), Vector2( -1.14476, 12.7418 ), Vector2( 1.07437, 12.4644 ), Vector2( 4.68046, 12.187 ), Vector2( 8.00916, 12.7418 ), Vector2( 9.39611, 12.7418 ), Vector2( 10.2283, 12.4644 ), Vector2( 13.557, 12.4644 ), Vector2( 15.7761, 12.7418 ), Vector2( 19.937, 12.4644 ), Vector2( 21.3239, 12.187 ) ]
+}
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 62.0866
+[sub_resource type="Animation" id=2]
+resource_name = "attack2"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 66, 74 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1.06794, 11.9278 ), Vector2( -1.06794, 11.9278 ), Vector2( 1.98336, 11.9278 ), Vector2( 5.31205, 11.9278 ), Vector2( 5.31205, 11.9278 ), Vector2( -0.235771, 11.373 ), Vector2( -0.235771, 11.373 ), Vector2( 11.4146, 11.9278 ), Vector2( 15.8529, 11.9278 ), Vector2( 19.1816, 12.2052 ), Vector2( 21.6781, 12.2052 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 77, 79 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1.34533, 12.76 ), Vector2( -1.34533, 12.76 ), Vector2( 1.70597, 12.4826 ), Vector2( 1.84467, 12.3439 ), Vector2( 4.20249, 11.9278 ) ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "running"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 11, 18 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1.34534, 11.373 ), Vector2( -1.34534, 11.373 ), Vector2( 0.873787, 8.59912 ), Vector2( 3.6477, 11.0956 ), Vector2( 6.69901, 12.76 ), Vector2( 11.1373, 12.4826 ), Vector2( 11.692, 8.87652 ), Vector2( 16.4077, 10.8183 ), Vector2( 17.7947, 11.9278 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 97.2308
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 33.8424, 16.3705 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 15.7166, 5.11137 )
+
+[sub_resource type="AnimationNodeAnimation" id=22]
+animation = "attack1"
+
+[sub_resource type="AnimationNodeAnimation" id=23]
+animation = "attack2"
+
+[sub_resource type="AnimationNodeAnimation" id=24]
+animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=25]
+animation = "running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=29]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id=26]
+states/attack1/node = SubResource( 22 )
+states/attack1/position = Vector2( 57, 195 )
+states/attack2/node = SubResource( 23 )
+states/attack2/position = Vector2( 354, 271 )
+states/idle/node = SubResource( 24 )
+states/idle/position = Vector2( 254, 35 )
+states/running/node = SubResource( 25 )
+states/running/position = Vector2( 520, 142 )
+transitions = [ "idle", "attack1", SubResource( 28 ), "attack1", "attack2", SubResource( 29 ), "attack2", "idle", SubResource( 30 ), "idle", "running", SubResource( 31 ), "running", "idle", SubResource( 32 ), "attack2", "attack1", SubResource( 33 ), "attack1", "idle", SubResource( 34 ), "idle", "attack2", SubResource( 35 ) ]
+graph_offset = Vector2( -233.394, -3.86512 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=36]
+resource_name = "StateMachine"
 
 [node name="Enemy" type="KinematicBody2D"]
 script = ExtResource( 1 )
-dist_min = 400
-enemy_velocity = 200
-gravity = 1200
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
+vframes = 20
+hframes = 11
+frame = 77
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/attack1 = SubResource( 1 )
+anims/attack2 = SubResource( 2 )
+anims/idle = SubResource( 3 )
+anims/running = SubResource( 21 )
+
+[node name="DetectRadius" type="Area2D" parent="."]
+editor/display_folded = true
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectRadius"]
+shape = SubResource( 6 )
+
+[node name="AttackRadius" type="Area2D" parent="."]
+editor/display_folded = true
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRadius"]
+position = Vector2( 4.21635, 4.21635 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+position = Vector2( -1.34533, 12.76 )
+shape = SubResource( 8 )
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 2 )
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 26 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 36 )
+[connection signal="body_entered" from="DetectRadius" to="." method="_on_DetectRadius_body_entered"]
+[connection signal="body_exited" from="DetectRadius" to="." method="_on_DetectRadius_body_exited"]
+[connection signal="body_entered" from="AttackRadius" to="." method="_on_AttackRadius_body_entered"]
+[connection signal="body_exited" from="AttackRadius" to="." method="_on_AttackRadius_body_exited"]

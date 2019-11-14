@@ -62,6 +62,6 @@ valign = 2
 margin_left = 104.0
 margin_right = 500.0
 margin_bottom = 53.0
-value = 50.0
+value = 100.0
 texture_under = ExtResource( 4 )
 texture_progress = ExtResource( 5 )
