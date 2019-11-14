@@ -12,6 +12,6 @@ func _ready():
 	$GUI/HBoxContainer/Bars/Bar/Gauge.value = player_life
 	$GUI/HBoxContainer/Bars/Bar/Count/Background/Number.text = player_life as String
 	
-	$Bomb.connect("can_be_grabbed", $Player, "can_grab_item")
-	$Bomb.connect("can_not_be_grabbed", $Player, "can_not_grab_item")
+	#$Bomb.connect("can_be_grabbed", $Player, "can_grab_item")
+	#$Bomb.connect("can_not_be_grabbed", $Player, "can_not_grab_item")
 

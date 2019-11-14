@@ -85,7 +85,7 @@ tracks/1/keys = {
 "values": [ Vector2( -1.34533, 12.76 ), Vector2( -1.34533, 12.76 ), Vector2( 1.70597, 12.4826 ), Vector2( 1.84467, 12.3439 ), Vector2( 4.20249, 11.9278 ) ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=4]
 resource_name = "running"
 length = 0.8
 tracks/0/type = "value"
@@ -113,61 +113,61 @@ tracks/1/keys = {
 "values": [ Vector2( -1.34534, 11.373 ), Vector2( -1.34534, 11.373 ), Vector2( 0.873787, 8.59912 ), Vector2( 3.6477, 11.0956 ), Vector2( 6.69901, 12.76 ), Vector2( 11.1373, 12.4826 ), Vector2( 11.692, 8.87652 ), Vector2( 16.4077, 10.8183 ), Vector2( 17.7947, 11.9278 ) ]
 }
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=5]
 radius = 97.2308
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 33.8424, 16.3705 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 15.7166, 5.11137 )
 
-[sub_resource type="AnimationNodeAnimation" id=22]
+[sub_resource type="AnimationNodeAnimation" id=8]
 animation = "attack1"
 
-[sub_resource type="AnimationNodeAnimation" id=23]
+[sub_resource type="AnimationNodeAnimation" id=9]
 animation = "attack2"
 
-[sub_resource type="AnimationNodeAnimation" id=24]
+[sub_resource type="AnimationNodeAnimation" id=10]
 animation = "idle"
 
-[sub_resource type="AnimationNodeAnimation" id=25]
+[sub_resource type="AnimationNodeAnimation" id=11]
 animation = "running"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=29]
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=32]
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachine" id=26]
-states/attack1/node = SubResource( 22 )
+[sub_resource type="AnimationNodeStateMachine" id=20]
+states/attack1/node = SubResource( 8 )
 states/attack1/position = Vector2( 57, 195 )
-states/attack2/node = SubResource( 23 )
+states/attack2/node = SubResource( 9 )
 states/attack2/position = Vector2( 354, 271 )
-states/idle/node = SubResource( 24 )
+states/idle/node = SubResource( 10 )
 states/idle/position = Vector2( 254, 35 )
-states/running/node = SubResource( 25 )
+states/running/node = SubResource( 11 )
 states/running/position = Vector2( 520, 142 )
-transitions = [ "idle", "attack1", SubResource( 28 ), "attack1", "attack2", SubResource( 29 ), "attack2", "idle", SubResource( 30 ), "idle", "running", SubResource( 31 ), "running", "idle", SubResource( 32 ), "attack2", "attack1", SubResource( 33 ), "attack1", "idle", SubResource( 34 ), "idle", "attack2", SubResource( 35 ) ]
+transitions = [ "idle", "attack1", SubResource( 12 ), "attack1", "attack2", SubResource( 13 ), "attack2", "idle", SubResource( 14 ), "idle", "running", SubResource( 15 ), "running", "idle", SubResource( 16 ), "attack2", "attack1", SubResource( 17 ), "attack1", "idle", SubResource( 18 ), "idle", "attack2", SubResource( 19 ) ]
 graph_offset = Vector2( -233.394, -3.86512 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=36]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=21]
 resource_name = "StateMachine"
 
 [node name="Enemy" type="KinematicBody2D"]
@@ -183,14 +183,14 @@ frame = 77
 anims/attack1 = SubResource( 1 )
 anims/attack2 = SubResource( 2 )
 anims/idle = SubResource( 3 )
-anims/running = SubResource( 21 )
+anims/running = SubResource( 4 )
 
 [node name="DetectRadius" type="Area2D" parent="."]
 editor/display_folded = true
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectRadius"]
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="AttackRadius" type="Area2D" parent="."]
 editor/display_folded = true
@@ -198,17 +198,17 @@ visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRadius"]
 position = Vector2( 4.21635, 4.21635 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1.34533, 12.76 )
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 26 )
+tree_root = SubResource( 20 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 36 )
+parameters/playback = SubResource( 21 )
 [connection signal="body_entered" from="DetectRadius" to="." method="_on_DetectRadius_body_entered"]
 [connection signal="body_exited" from="DetectRadius" to="." method="_on_DetectRadius_body_exited"]
 [connection signal="body_entered" from="AttackRadius" to="." method="_on_AttackRadius_body_entered"]

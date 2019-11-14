@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Panel_1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/Bomb.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/enemy/Enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Pendulo.tscn" type="PackedScene" id=5]
+[ext_resource path="res://PlataformaMomentanea.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/enemy/Enemy.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -32,15 +33,17 @@ margin_top = 3.15791
 margin_right = 609.474
 margin_bottom = 96.1579
 
-[node name="Bomb" parent="." instance=ExtResource( 5 )]
-position = Vector2( 354.282, 464.203 )
-
-[node name="Enemy" parent="." instance=ExtResource( 6 )]
-position = Vector2( 488.934, 476.607 )
-scale = Vector2( 2, 2 )
-patrol_path = NodePath("../Path2D")
-
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2( 0, -2.07657 )
 scale = Vector2( 1, 1.0041 )
 curve = SubResource( 1 )
+
+[node name="Pendulo" parent="." instance=ExtResource( 5 )]
+position = Vector2( 534.153, 128.292 )
+
+[node name="PlataformaMomentanea" parent="." instance=ExtResource( 6 )]
+position = Vector2( 276.518, 384.934 )
+
+[node name="Enemy" parent="." instance=ExtResource( 7 )]
+position = Vector2( 624.954, 474.787 )
+scale = Vector2( 2, 2 )
