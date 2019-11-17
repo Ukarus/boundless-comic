@@ -17,5 +17,5 @@ func _process(delta):
 		
 
 func _on_PlataformaFalsa_body_entered(body):
-	if body.get_name() == "Player":
+	if body.is_in_group("jugador"):
 		toco = 1
