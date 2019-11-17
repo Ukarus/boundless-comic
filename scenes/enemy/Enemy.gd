@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+export (int) var life = 200
 enum states {PATROL, CHASE, ATTACK, DEAD}
 var state = states.PATROL
 
@@ -29,11 +30,15 @@ func choose_action():
 	
 	#if current in attacks:
 		#return
+	
+	if life <= 0:
+		state = states.DEAD
 		
 	var target
 	match state:
 		states.DEAD:
 			set_physics_process(false)
+			queue_free()
 			
 		states.PATROL:
 			if !patrol_path:
@@ -77,8 +82,9 @@ func _on_DetectRadius_body_entered(body):
 		player = body
 
 func _on_DetectRadius_body_exited(body):
-	state = states.PATROL
-	player = null
+	if body.is_in_group("player"):
+		state = states.PATROL
+		player = null
 
 
 func _on_AttackRadius_body_entered(body):
@@ -87,3 +93,13 @@ func _on_AttackRadius_body_entered(body):
 
 func _on_AttackRadius_body_exited(body):
 	state = states.CHASE
+	
+func hurt(damage):
+	self.life -= damage
+	print(self.life)
+	
+
+
+func _on_AxeHit_body_entered(body):
+	if body.is_in_group("player"):
+		body.take_damage(30)

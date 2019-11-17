@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5.54147, 2.61254 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "attack1"
 length = 0.4
 tracks/0/type = "value"
@@ -35,7 +35,7 @@ tracks/1/keys = {
 "values": [ true, false, false, true, true ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -50,7 +50,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -77,7 +77,7 @@ tracks/1/keys = {
 "values": [ Vector2( -1.69451, 12.4264 ), Vector2( -1.69451, 11.1838 ), Vector2( -1.92044, 9.60222 ), Vector2( -1.80748, 11.1838 ), Vector2( -1.69451, 12.6523 ), Vector2( -1.58154, 11.5227 ), Vector2( -1.24264, 11.1838 ), Vector2( -1.24264, 11.5227 ), Vector2( -1.69451, 13.2172 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -92,7 +92,7 @@ tracks/0/keys = {
 "values": [ 104, 105, 106, 107, 108, 109, 110, 111 ]
 }
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 5.64672, 2.79159 )
 
 [node name="Player" type="KinematicBody2D" groups=[
@@ -109,7 +109,6 @@ hframes = 13
 frame = 20
 
 [node name="SwordHit" type="Area2D" parent="Sprite"]
-editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/SwordHit"]
 position = Vector2( 11.5436, 5.77109 )
@@ -117,12 +116,12 @@ shape = SubResource( 1 )
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/attack1 = SubResource( 3 )
-anims/idle = SubResource( 4 )
-anims/running = SubResource( 5 )
-anims/running_left = SubResource( 6 )
+anims/attack1 = SubResource( 2 )
+anims/idle = SubResource( 3 )
+anims/running = SubResource( 4 )
+anims/running_left = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1.69451, 13.2172 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 [connection signal="area_entered" from="Sprite/SwordHit" to="." method="_on_SwordHit_area_entered"]
