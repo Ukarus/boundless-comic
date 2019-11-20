@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Panel_1.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://PlataformaMomentanea.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/enemy/Enemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Turret.tscn" type="PackedScene" id=8]
+[ext_resource path="res://lateral.tscn" type="PackedScene" id=9]
+[ext_resource path="res://vertical.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -54,3 +56,9 @@ scale = Vector2( 2, 2 )
 
 [node name="Turret" parent="." instance=ExtResource( 8 )]
 position = Vector2( 472.371, 374.269 )
+
+[node name="lateral" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1133, 157 )
+
+[node name="vertical" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1484.02, 159.002 )
