@@ -103,6 +103,7 @@ script = ExtResource( 1 )
 bomb = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+editor/display_folded = true
 texture = ExtResource( 3 )
 vframes = 16
 hframes = 13

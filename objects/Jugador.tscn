@@ -353,7 +353,7 @@ scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 8
-frame = 5
+frame = 20
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Ataque_1 = SubResource( 1 )
@@ -391,11 +391,13 @@ hframes = 3
 frame = 2
 
 [node name="AreaAtaque" type="Area2D" parent="."]
+editor/display_folded = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AreaAtaque"]
 editor/display_folded = true
 position = Vector2( -0.453156, 2.44351 )
 polygon = PoolVector2Array( 42.7442, -92.3472, -39.3886, -102.185, -38.0618, 95.5144, 23.6363, 93.5242, 67.9939, 77.0701, 100.574, 35.5303, 100.574, -30.4447, 79.3969, -77.6861 )
+disabled = true
 __meta__ = {
 "_edit_group_": true
 }
