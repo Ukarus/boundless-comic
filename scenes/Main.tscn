@@ -1,64 +1,24 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Panel_1.tscn" type="PackedScene" id=2]
-[ext_resource path="res://objects/Jugador.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/Pendulo.tscn" type="PackedScene" id=5]
-[ext_resource path="res://PlataformaMomentanea.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/enemy/Enemy.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Turret.tscn" type="PackedScene" id=8]
-[ext_resource path="res://lateral.tscn" type="PackedScene" id=9]
-[ext_resource path="res://vertical.tscn" type="PackedScene" id=10]
-
-[sub_resource type="Curve2D" id=1]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 657.063, 506.667, 0, 0, 0, 0, 657.063, 506.667, 0, 0, 0, 0, 657.063, 506.667, 0, 0, 0, 0, 657.063, 506.667, 0, 0, 0, 0, 658.26, 507.263, 0, 0, 0, 0, 657.063, 506.667, 0, 0, 0, 0, 939.066, 505.474, 0, 0, 0, 0, 936.671, 390.986, 0, 0, 0, 0, 657.063, 391.583, 0, 0, 0, 0, 657.063, 506.667 )
-}
+[ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Turret.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/Jugador.tscn" type="PackedScene" id=5]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="Panel_1" parent="." instance=ExtResource( 2 )]
 
-[node name="Jugador" parent="." groups=[
-"jugador",
-] instance=ExtResource( 3 )]
-position = Vector2( 205.142, 372.511 )
-collision_layer = 3
-
-[node name="TextureProgress" type="TextureProgress" parent="."]
-margin_left = 708.0
-margin_top = 33.0
-margin_right = 972.0
-margin_bottom = 73.0
-
-[node name="GUI" parent="." instance=ExtResource( 4 )]
+[node name="GUI" parent="." instance=ExtResource( 3 )]
 margin_left = 69.4738
 margin_top = 3.15791
 margin_right = 609.474
 margin_bottom = 96.1579
 
-[node name="Path2D" type="Path2D" parent="."]
-position = Vector2( 474.684, -56.5773 )
-scale = Vector2( 1, 1.0041 )
-curve = SubResource( 1 )
-
-[node name="Pendulo" parent="." instance=ExtResource( 5 )]
-position = Vector2( 716.575, 20.7906 )
-
-[node name="PlataformaMomentanea" parent="." instance=ExtResource( 6 )]
-position = Vector2( 402.225, 156.369 )
-
-[node name="Enemy" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1278.96, 371.06 )
-scale = Vector2( 2, 2 )
-
-[node name="Turret" parent="." instance=ExtResource( 8 )]
+[node name="Turret" parent="." instance=ExtResource( 4 )]
 position = Vector2( 472.371, 374.269 )
 
-[node name="lateral" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1133, 157 )
-
-[node name="vertical" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1484.02, 159.002 )
+[node name="Jugador" parent="." instance=ExtResource( 5 )]
+position = Vector2( 246.341, 337.224 )

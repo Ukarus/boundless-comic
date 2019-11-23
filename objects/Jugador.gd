@@ -522,3 +522,9 @@ func _physics_process(delta):
     if nueva_anim != anim:
         anim = nueva_anim
         $AnimationPlayer.play(anim)
+
+
+func _on_AreaAtaque_body_entered(body):
+	print(body, body.is_in_group("breakable"))
+	if body.is_in_group("breakable"):
+		body.get_parent().take_damage()

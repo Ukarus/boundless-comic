@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/New Piskel(1).png" type="Texture" id=1]
+[ext_resource path="res://scenes/tiles/BreakableTile.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32.6217, 80.7554 )
+
+[node name="Sprite" type="Sprite"]
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=[
+"breakable",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 8.10541, -8.1054 )
+shape = SubResource( 1 )

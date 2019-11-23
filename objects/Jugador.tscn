@@ -19,6 +19,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 4 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("AreaAtaque/CollisionPolygon2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, false, false, false, false, false, false, false, false ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "Ataque_2"
@@ -33,6 +45,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AreaAtaque/CollisionPolygon2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, false, false, false, false, false, false, false, false, false ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -95,6 +119,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 15, 16, 17, 18, 19, 20 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AreaAtaque/CollisionPolygon2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, true, true, true, true, true, true, true, true, true, true ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -315,7 +351,7 @@ scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 8
-frame = 27
+frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Ataque_1 = SubResource( 1 )
@@ -333,10 +369,13 @@ anims/Salto_B = SubResource( 12 )
 anims/Sentarse = SubResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 3, -4 )
 shape = SubResource( 14 )
 
 [node name="AterrizarAnim" type="Node2D" parent="."]
+editor/display_folded = true
+visible = false
 position = Vector2( 0, 44 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AterrizarAnim"]
@@ -352,6 +391,7 @@ frame = 2
 [node name="AreaAtaque" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AreaAtaque"]
+editor/display_folded = true
 position = Vector2( -0.453156, 2.44351 )
 polygon = PoolVector2Array( 42.7442, -92.3472, -39.3886, -102.185, -38.0618, 95.5144, 23.6363, 93.5242, 67.9939, 77.0701, 100.574, 35.5303, 100.574, -30.4447, 79.3969, -77.6861 )
 __meta__ = {
@@ -380,6 +420,8 @@ anims/CorteB = SubResource( 17 )
 volume_db = 0.01
 
 [node name="Escudo" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Escudo"]
 position = Vector2( 54.3765, 1.53802 )
@@ -410,7 +452,10 @@ rounded = true
 [node name="Cabeza" type="Area2D" parent="." groups=[
 "CabezaJugador",
 ]]
+editor/display_folded = true
+visible = false
 position = Vector2( 0, -62.498 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cabeza"]
 shape = SubResource( 19 )
+[connection signal="body_entered" from="AreaAtaque" to="." method="_on_AreaAtaque_body_entered"]

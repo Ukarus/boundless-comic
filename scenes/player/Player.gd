@@ -57,16 +57,21 @@ func get_input():
 		
 func _physics_process(delta):
 	get_input()
-	print(self.life)
 	velocity.y += gravity * delta
 	if jumping and is_on_floor():
 		jumping = false
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 
 func _on_SwordHit_area_entered(body):
+	print(body)
 	if body.is_in_group("enemies"):
 		body.get_parent().hurt(20)
+	elif body.is_in_group("breakable"):
+		body.take_damage()
 
 func take_damage(damage):
 	self.life -= damage
-	print(self.life)
+
+func _on_SwordHit_body_entered(body):
+	if body.is_in_group("breakable"):
+		body.get_parent().take_damage()

@@ -74,7 +74,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -1.69451, 12.4264 ), Vector2( -1.69451, 11.1838 ), Vector2( -1.92044, 9.60222 ), Vector2( -1.80748, 11.1838 ), Vector2( -1.69451, 12.6523 ), Vector2( -1.58154, 11.5227 ), Vector2( -1.24264, 11.1838 ), Vector2( -1.24264, 11.5227 ), Vector2( -1.69451, 13.2172 ) ]
+"values": [ Vector2( -1.88319, 4.87931 ), Vector2( -1.50584, 3.44803 ), Vector2( -2.29779, 2.24381 ), Vector2( -1.80748, 3.07068 ), Vector2( -1.50584, 4.91653 ), Vector2( -1.95889, 3.78693 ), Vector2( -1.43132, 3.25936 ), Vector2( -1.62, 4.16429 ), Vector2( -1.69451, 4.72672 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -93,7 +93,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 5.64672, 2.79159 )
+extents = Vector2( 7.17891, 10.1536 )
 
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
@@ -106,9 +106,10 @@ bomb = ExtResource( 2 )
 texture = ExtResource( 3 )
 vframes = 16
 hframes = 13
-frame = 20
+frame = 61
 
 [node name="SwordHit" type="Area2D" parent="Sprite"]
+editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/SwordHit"]
 position = Vector2( 11.5436, 5.77109 )
@@ -122,6 +123,7 @@ anims/running = SubResource( 4 )
 anims/running_left = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1.69451, 13.2172 )
+position = Vector2( -1.69451, 4.72672 )
 shape = SubResource( 6 )
 [connection signal="area_entered" from="Sprite/SwordHit" to="." method="_on_SwordHit_area_entered"]
+[connection signal="body_entered" from="Sprite/SwordHit" to="." method="_on_SwordHit_body_entered"]
