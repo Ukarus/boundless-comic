@@ -34,9 +34,10 @@ func aim():
 		var result = space_state.intersect_ray(position,
 				pos, [self], collision_mask)
 		if result:
+			print(result.collider, result.collider.get_name())
 			hit_pos.append(result.position)
 			if result.collider.is_in_group("jugador"):
-				print("asdasd")
+
 				$Sprite.self_modulate.r = 1.0
 				rotation = (target.position - position).angle()
 				if can_shoot:
