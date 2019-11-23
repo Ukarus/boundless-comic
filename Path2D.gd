@@ -9,7 +9,7 @@ func _ready():
 	set_process(true)
 	
 func _process(delta):
-	ruta.set_offset(ruta.get_offset() + 150 * delta)
+	ruta.set_offset(ruta.get_offset() + 300 * delta)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
