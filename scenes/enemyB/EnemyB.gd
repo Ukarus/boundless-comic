@@ -10,7 +10,7 @@ var muerto = false
 var player = null
 
 #Debemos sincronizar el ataque con la animacion
-var t_golpe = 0.2
+var t_golpe = 0.1
 
 var t_ataque = 0.0
 export var r_ataque = 1.5 # retraso entre ataque y ataque
@@ -22,11 +22,11 @@ export var RANGO_ATAQUE = 160.0
 export var RANGO_MOV = 1000.0
 export var VEL_MOV = 150.0
 
+onready var bullet = preload("res://scenes/enemyB/LaserBullet.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimationPlayer.play("Idle")
-	#add_to_group("Enemigo")
-	#add_to_group("breakable")
 	$BarraVida.max_value = vida
 	$BarraVida.value = vida
 	pass
@@ -43,15 +43,6 @@ func take_damage(dmg):
 		$AnimationPlayer.play("Muerte")
 		$BarraVida.hide()
 		queue_free()
-		#$AreaAtaque.hide()
-		#var player = get_tree().get_nodes_in_group("Player")[0]
-		#if player:
-			#add_collision_exception_with(player)
-		#var enemigos = get_tree().get_nodes_in_group("Enemigo")
-		#for e in enemigos:
-			#add_collision_exception_with(e)
-		#remove_from_group("Enemigo")
-		#muerto = true
 
 func _decidir_ataque():
 	pass
@@ -62,12 +53,10 @@ func _pensar():
 	var enemigo = get_tree().get_nodes_in_group("Player")[0]
 	if not enemigo:
 		pass
-		
-	#if player:
+	
 	# Si jugador se encuentra en rango
 	var dist = enemigo.global_position.x - global_position.x
 	var dist_abs = global_position.distance_to(enemigo.global_position)
-	#print("Distancia: " + str(dist_abs))
 	var nuevo_mirar_izq = false
 	#mirar hacia personaje
 	if dist < 0:
@@ -78,10 +67,8 @@ func _pensar():
 	if nuevo_mirar_izq != mirar_izq:
 		if nuevo_mirar_izq:
 			$Sprite.scale = Vector2(1,1)
-			$AreaAtaque.scale = Vector2(1,1)
 		else:
 			$Sprite.scale = Vector2(-1,1)
-			$AreaAtaque.scale = Vector2(-1,1)
 	mirar_izq = nuevo_mirar_izq
 	if(dist_abs <= RANGO_ATAQUE):
 		estado = estados.ATAQUE
@@ -97,12 +84,21 @@ func _pensar():
 	else:
 		estado = estados.IDLE
 		$AnimationPlayer.play("Idle")
+		
+func shoot():
+	var B = bullet.instance()
+	get_tree().get_root().add_child(B)
+	if mirar_izq:
+		B.set_global_position($ShootPointL.get_global_position())
+		B.dir = Vector2(-1,0)
+	else:
+		B.set_global_position($ShootPointR.get_global_position())
+		B.dir = Vector2(1,0)
 
 func _physics_process(delta):
 	if muerto:
 		return
-	
-	#print($AnimationPlayer.current_animation) 
+
 	_pensar()
 	if estado == estados.IDLE:
 		pass
@@ -112,24 +108,9 @@ func _physics_process(delta):
 		else:
 			move_and_slide(Vector2(1.0,9.8)*VEL_MOV, Vector2( 0, 0 ), false, 4,0.785398,true)
 	elif estado == estados.ATAQUE:
-		if $AnimationPlayer.current_animation_position >= t_golpe and ataque_activo:
-			var cuerpos = $AreaAtaque.get_overlapping_bodies()
-			for c in cuerpos:
-				if ataque_activo:
-					if c.is_in_group("Escudo"):
-						#ejecutar sonido
-						#bajar estamina
-						#ejecutar_sonido()
-						ataque_activo = false
-						c.get_parent().golpe_escudo(atq+10)
-			if ataque_activo:
-				for c in cuerpos:
-					if c.is_in_group("Aliado"):
-						#c.danio(atq)
-						c.take_damage(atq)
-						ataque_activo = false
-						#ejecutar_sonido()
-				
+		if $AnimationPlayer.current_animation_position >= t_golpe and ataque_activo: 
+			shoot()
+			ataque_activo = false
 		pass
 	elif estado == estados.ATAQUE_RETRASO:
 		t_ataque += delta
