@@ -7,8 +7,6 @@
 [ext_resource path="res://scenes/enemyA/EnemyA.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/player/Protagonista.tscn" type="PackedScene" id=6]
 
-
-
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -25,8 +23,8 @@ margin_bottom = -85.1047
 position = Vector2( 1607.16, 93.6301 )
 
 [node name="EnemyA" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1874.19, 96.4338 )
+position = Vector2( 1915.43, 138.337 )
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 222.603, 60.9508 )
+position = Vector2( 2568.21, 436.157 )
 scale = Vector2( 0.1, 0.1 )

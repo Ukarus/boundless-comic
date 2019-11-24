@@ -16,10 +16,12 @@ extents = Vector2( 40, 15 )
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource( 1 )
 script = ExtResource( 1 )
+speed = 300
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2( -2, -1 )
 rotation = -1.5708
+rotate = false
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="Path2D/PathFollow2D"]
 
