@@ -80,16 +80,16 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 160, 0, 160 )
 } ]
 3/z_index = 0
 
-[sub_resource type="ConvexPolygonShape2D" id=13]
+[sub_resource type="ConvexPolygonShape2D" id=5]
 points = PoolVector2Array( 0, 64, 128, 64, 128, 128, 0, 128 )
 
-[sub_resource type="ConvexPolygonShape2D" id=14]
+[sub_resource type="ConvexPolygonShape2D" id=6]
 points = PoolVector2Array( 0, 64, 96, 64, 128, 128, 0, 128 )
 
-[sub_resource type="ConvexPolygonShape2D" id=9]
+[sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 32, 64, 128, 64, 128, 128, 0, 128 )
 
-[sub_resource type="TileSet" id=5]
+[sub_resource type="TileSet" id=8]
 1/name = "techo.medio.png 1"
 1/texture = ExtResource( 5 )
 1/tex_offset = Vector2( 0, 0 )
@@ -102,7 +102,7 @@ points = PoolVector2Array( 32, 64, 128, 64, 128, 128, 0, 128 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 13 ),
+"shape": SubResource( 5 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 1/z_index = 0
@@ -128,7 +128,7 @@ points = PoolVector2Array( 32, 64, 128, 64, 128, 128, 0, 128 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 14 ),
+"shape": SubResource( 6 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 3/z_index = 0
@@ -144,18 +144,18 @@ points = PoolVector2Array( 32, 64, 128, 64, 128, 128, 0, 128 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 9 ),
+"shape": SubResource( 7 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 4/z_index = 0
 
-[sub_resource type="ConvexPolygonShape2D" id=11]
+[sub_resource type="ConvexPolygonShape2D" id=9]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 160, 0, 160 )
 
-[sub_resource type="ConvexPolygonShape2D" id=12]
+[sub_resource type="ConvexPolygonShape2D" id=10]
 points = PoolVector2Array( 0, 0, 192, 0, 192, 32, 0, 32 )
 
-[sub_resource type="TileSet" id=10]
+[sub_resource type="TileSet" id=11]
 0/name = "border.png 0"
 0/texture = ExtResource( 9 )
 0/tex_offset = Vector2( 0, 0 )
@@ -168,7 +168,7 @@ points = PoolVector2Array( 0, 0, 192, 0, 192, 32, 0, 32 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 11 ),
+"shape": SubResource( 9 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
@@ -184,7 +184,7 @@ points = PoolVector2Array( 0, 0, 192, 0, 192, 32, 0, 32 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 12 ),
+"shape": SubResource( 10 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 1/z_index = 0
@@ -202,12 +202,12 @@ position = Vector2( 1493.42, 343.662 )
 
 [node name="TileMap2" type="TileMap" parent="."]
 position = Vector2( 0, 1 )
-tile_set = SubResource( 5 )
+tile_set = SubResource( 8 )
 format = 1
 tile_data = PoolIntArray( 0, 2, 0, 2, 2, 0, 4, 2, 0, 6, 2, 0, 8, 2, 0, 10, 2, 0, 12, 2, 0, 14, 2, 0, 196608, 2, 0, 196610, 2, 0, 196612, 2, 0, 196614, 2, 0, 196616, 2, 0, 196618, 2, 0, 196620, 2, 0, 196622, 2, 0, 458751, 4, 0, 393217, 1, 0, 393219, 1, 0, 393221, 1, 0, 393223, 1, 0, 393225, 1, 0, 393227, 1, 0, 393229, 1, 0, 393231, 3, 0, 589847, 1, 0, 589849, 0, 0 )
 
 [node name="Borders" type="TileMap" parent="."]
-tile_set = SubResource( 10 )
+tile_set = SubResource( 11 )
 cell_size = Vector2( 32, 32 )
 format = 1
 tile_data = PoolIntArray( -1, 1, 0, -65531, 1, 0, -65525, 1, 0, -65519, 1, 0, -65513, 1, 0, -65509, 1, 0, -65504, 0, 0, 65535, 0, 0, 196640, 0, 0, 327679, 0, 0, 589823, 0, 0, 786431, 0, 0, 1114111, 1, 0, 1048581, 1, 0, 1048587, 1, 0, 1048593, 1, 0, 1048599, 1, 0, 1048603, 1, 0 )
@@ -215,3 +215,7 @@ tile_data = PoolIntArray( -1, 1, 0, -65531, 1, 0, -65525, 1, 0, -65519, 1, 0, -6
 [node name="DestructibleBorder" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1040.45, 404.662 )
 scale = Vector2( 2, 7 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]

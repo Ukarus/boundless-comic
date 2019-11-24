@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/New Piskel.png-53a8c0f56bd6a6e498c320870ee3d9c8.stex"
+path="res://.import/exterior.nube.1.png-b7102f4819aac4afd72be6a814b39eca.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/tiles/New Piskel.png"
-dest_files=[ "res://.import/New Piskel.png-53a8c0f56bd6a6e498c320870ee3d9c8.stex" ]
+source_file="res://art/background/exterior.nube.1.png"
+dest_files=[ "res://.import/exterior.nube.1.png-b7102f4819aac4afd72be6a814b39eca.stex" ]
 
 [params]
 

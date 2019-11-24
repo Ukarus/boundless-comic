@@ -6,8 +6,8 @@ export (int) var durability = 3
 func _ready():
 	$AnimationPlayer.play("idle")
 	
-func take_damage():
-	self.durability -= 1
+func take_damage(dmg):
+	self.durability -= dmg
 	if self.durability == 2:
 		$AnimationPlayer.play("second")
 	if self.durability == 1:
