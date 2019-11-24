@@ -12,7 +12,7 @@ var muerto = false
 var t_golpe = 0.2
 
 var t_ataque = 0.0
-var r_ataque = 0.8 # retraso entre ataque y ataque
+export var r_ataque = 1.5 # retraso entre ataque y ataque
 
 export var vida = 200
 export var atq = 25
@@ -138,7 +138,7 @@ func _physics_process(delta):
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Attack":
-		estado = estados.RETRASO_ATAQUE
+		estado = estados.ATAQUE_RETRASO
 		ataque_retraso = true
 		$AnimationPlayer.play("Idle")
 	pass # Replace with function body.
