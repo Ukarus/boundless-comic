@@ -22,10 +22,12 @@ func get_input():
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += run_speed
 		$Sprite.scale.x = 1
+		$AttackHitbox.scale.x = 1
 		$AnimationPlayer.play("running")
 	if Input.is_action_pressed("ui_left"):
 		velocity.x -= run_speed
 		$Sprite.scale.x = -1
+		$AttackHitbox.scale.x = -1
 		$AnimationPlayer.play("running")
 	if Input.is_action_pressed("ui_down"):
 		$AnimationPlayer.play("crouch")

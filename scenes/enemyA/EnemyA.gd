@@ -25,12 +25,13 @@ export var VEL_MOV = 150.0
 func _ready():
 	$AnimationPlayer.play("Idle")
 	add_to_group("Enemigo")
-	add_to_group("breakeable")
+	add_to_group("breakable")
 	$BarraVida.max_value = vida
 	$BarraVida.value = vida
 	pass
 
-func take_damage(dmg):
+func take_damage():
+	var dmg = 50
 	if muerto:
 		return
 	if not $BarraVida.visible:
