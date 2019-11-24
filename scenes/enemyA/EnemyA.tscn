@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/enemyA/EnemyA.gd" type="Script" id=1]
 [ext_resource path="res://art/enemy/guadaña.png" type="Texture" id=2]
@@ -56,9 +56,6 @@ tracks/0/keys = {
 "values": [ 2, 3, 4, 5 ]
 }
 
-[sub_resource type="CircleShape2D" id=5]
-radius = 269.369
-
 [node name="EnemyA" type="KinematicBody2D" groups=[
 "Enemigo",
 ]]
@@ -96,7 +93,7 @@ value = 50.0
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 4 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="DetectionArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource( 5 )

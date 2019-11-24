@@ -6,10 +6,16 @@ export (int) var gravity = 1200
 export (int) var life = 300
 var velocity = Vector2()
 var jumping = false
+signal update_life
 
 func _ready():
 	$AnimationPlayer.play("idle")
 	add_to_group("Player")
+
+func take_damage(dmg):
+	self.life -= dmg
+	print(self.life)
+	emit_signal("update_life")
 
 func get_input():
 	velocity.x = 0
@@ -24,14 +30,21 @@ func get_input():
 		velocity.x += run_speed
 		$Sprite.scale.x = 1
 		$AttackHitbox.scale.x = 1
-		$AnimationPlayer.play("running")
+		if Input.is_action_pressed("ui_up") || jumping:
+			$AnimationPlayer.play("jumping")
+		if is_on_floor():
+			$AnimationPlayer.play("running")
 	if Input.is_action_pressed("ui_left"):
 		velocity.x -= run_speed
 		$Sprite.scale.x = -1
 		$AttackHitbox.scale.x = -1
-		$AnimationPlayer.play("running")
+		if Input.is_action_pressed("ui_up") || jumping:
+			$AnimationPlayer.play("jumping")
+		if is_on_floor():
+			$AnimationPlayer.play("running")
 	if Input.is_action_pressed("ui_down"):
-		$AnimationPlayer.play("crouch")
+		if is_on_floor():
+			$AnimationPlayer.play("crouch")
 	if Input.is_action_just_pressed("atacar"):
 		$AnimationPlayer.play("basic_punch")
 	
@@ -49,4 +62,4 @@ func _on_AttackHitbox_body_entered(body):
 	if body.is_in_group("breakable"):
 		body.take_damage(1)
 	if body.is_in_group("Enemigo"):
-		body.take_damage()
+		body.take_damage(30)

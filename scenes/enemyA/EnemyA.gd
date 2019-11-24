@@ -7,12 +7,13 @@ var mirar_izq = false
 var ataque_retraso = false
 var ataque_activo = true
 var muerto = false
+var player = null
 
 #Debemos sincronizar el ataque del golem con la animacion
 var t_golpe = 0.2
 
 var t_ataque = 0.0
-var r_ataque = 0.8 # retraso entre ataque y ataque
+export var r_ataque = 1.5 # retraso entre ataque y ataque
 
 export var vida = 200
 export var atq = 25
@@ -30,8 +31,7 @@ func _ready():
 	$BarraVida.value = vida
 	pass
 
-func take_damage():
-	var dmg = 50
+func take_damage(dmg):
 	if muerto:
 		return
 	if not $BarraVida.visible:
@@ -42,16 +42,16 @@ func take_damage():
 	if vida <= 0:
 		$AnimationPlayer.play("Muerte")
 		$BarraVida.hide()
-		#$AreaAtaque.hide()
-		var player = get_tree().get_nodes_in_group("Player")[0]
-		if player:
-			add_collision_exception_with(player)
-		var enemigos = get_tree().get_nodes_in_group("Enemigo")
-		for e in enemigos:
-			add_collision_exception_with(e)
-		remove_from_group("Enemigo")
-		muerto = true
 		queue_free()
+		#$AreaAtaque.hide()
+		#var player = get_tree().get_nodes_in_group("Player")[0]
+		#if player:
+			#add_collision_exception_with(player)
+		#var enemigos = get_tree().get_nodes_in_group("Enemigo")
+		#for e in enemigos:
+			#add_collision_exception_with(e)
+		#remove_from_group("Enemigo")
+		#muerto = true
 
 func _decidir_ataque():
 	pass
@@ -62,6 +62,8 @@ func _pensar():
 	var enemigo = get_tree().get_nodes_in_group("Player")[0]
 	if not enemigo:
 		pass
+		
+	#if player:
 	# Si jugador se encuentra en rango
 	var dist = enemigo.global_position.x - global_position.x
 	var dist_abs = global_position.distance_to(enemigo.global_position)
@@ -85,6 +87,7 @@ func _pensar():
 		estado = estados.ATAQUE
 		ataque_activo = true
 		$AnimationPlayer.play("Attack")
+		
 	# Sino
 	elif(dist_abs <= RANGO_MOV):
 		# Saltar si jugador se encuentra mas arriba
@@ -94,12 +97,12 @@ func _pensar():
 	else:
 		estado = estados.IDLE
 		$AnimationPlayer.play("Idle")
-	pass
 
 func _physics_process(delta):
 	if muerto:
 		return
 	
+	#print($AnimationPlayer.current_animation) 
 	_pensar()
 	if estado == estados.IDLE:
 		pass
@@ -122,24 +125,35 @@ func _physics_process(delta):
 			if ataque_activo:
 				for c in cuerpos:
 					if c.is_in_group("Aliado"):
-						c.danio(atq)
+						#c.danio(atq)
+						c.take_damage(atq)
 						ataque_activo = false
 						#ejecutar_sonido()
 				
 		pass
 	elif estado == estados.ATAQUE_RETRASO:
-		t_ataque  += delta
+		t_ataque += delta
 		if t_ataque >= r_ataque:
 			t_ataque = 0.0
 			ataque_activo = true
 			ataque_retraso = false
+			var player = get_tree().get_nodes_in_group("Player")[0]
+			player.take_damage(atq)
 			estado = estados.IDLE
 		pass
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Attack":
-		estado = estados.RETRASO_ATAQUE
+		estado = estados.ATAQUE_RETRASO
 		ataque_retraso = true
 		$AnimationPlayer.play("Idle")
 	pass # Replace with function body.
 
+
+
+func _on_DetectionArea_body_entered(body):
+	if body.is_in_group("player"):
+		pass
+
+func _on_AreaAtaque_body_entered(body):
+	pass # Replace with function body.
