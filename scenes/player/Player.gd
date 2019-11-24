@@ -19,6 +19,7 @@ var inventory = []
 func _ready():
 	screen_size = get_viewport_rect().size
 	$AnimationPlayer.play("idle")
+	add_to_group("Player")
 
 func can_grab_item():
 	can_grab_item = true

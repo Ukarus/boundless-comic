@@ -9,6 +9,7 @@ var jumping = false
 
 func _ready():
 	$AnimationPlayer.play("idle")
+	add_to_group("Player")
 
 func get_input():
 	velocity.x = 0
@@ -22,14 +23,14 @@ func get_input():
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += run_speed
 		$Sprite.scale.x = 1
-		if is_on_floor():
-			$AnimationPlayer.play("running")
+		$AttackHitbox.scale.x = 1
+		$AnimationPlayer.play("running")
 	if Input.is_action_pressed("ui_left"):
 		velocity.x -= run_speed
 		$Sprite.scale.x = -1
-		if is_on_floor():
-			$AnimationPlayer.play("running")
-	if Input.is_action_pressed("ui_down") and is_on_floor():
+		$AttackHitbox.scale.x = -1
+		$AnimationPlayer.play("running")
+	if Input.is_action_pressed("ui_down"):
 		$AnimationPlayer.play("crouch")
 	if Input.is_action_just_pressed("atacar"):
 		$AnimationPlayer.play("basic_punch")
@@ -45,6 +46,7 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 
 func _on_AttackHitbox_body_entered(body):
-	print(body, body.is_in_group("breakable"))
 	if body.is_in_group("breakable"):
 		body.take_damage(1)
+	if body.is_in_group("Enemigo"):
+		body.take_damage()

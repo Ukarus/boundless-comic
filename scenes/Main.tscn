@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Vineta1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/player/Protagonista.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Turret.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/enemyA/EnemyA.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/player/Protagonista.tscn" type="PackedScene" id=6]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
@@ -17,6 +19,12 @@ margin_top = -178.105
 margin_right = 586.816
 margin_bottom = -85.1047
 
-[node name="KinematicBody2D" parent="." instance=ExtResource( 4 )]
-position = Vector2( 133.836, 63.952 )
+[node name="Turret" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1607.16, 93.6301 )
+
+[node name="EnemyA" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1434.09, 91.0719 )
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 222.603, 60.9508 )
 scale = Vector2( 0.1, 0.1 )

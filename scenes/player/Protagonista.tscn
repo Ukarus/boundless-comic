@@ -188,7 +188,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=5]
-length = 0.5
+length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -203,7 +203,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 422.229, 722.285 )
+extents = Vector2( 428.837, 943.385 )
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 282.526, 118.017 )
@@ -224,7 +224,7 @@ anims/jumping = SubResource( 4 )
 anims/running = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -116.894, 265.976 )
+position = Vector2( -65.2292, 98.6254 )
 shape = SubResource( 6 )
 
 [node name="AttackHitbox" type="Area2D" parent="."]
