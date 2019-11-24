@@ -23,8 +23,8 @@ margin_bottom = -85.1047
 position = Vector2( 1607.16, 93.6301 )
 
 [node name="EnemyA" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1434.09, 91.0719 )
+position = Vector2( 1291.13, -1.43243 )
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 222.603, 60.9508 )
+position = Vector2( 1706.79, 1603.68 )
 scale = Vector2( 0.1, 0.1 )

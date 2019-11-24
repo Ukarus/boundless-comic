@@ -236,4 +236,5 @@ disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+zoom = Vector2( 2, 2 )
 [connection signal="body_entered" from="AttackHitbox" to="." method="_on_AttackHitbox_body_entered"]

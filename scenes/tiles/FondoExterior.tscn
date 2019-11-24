@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/tiles/FondoExterior.gd" type="Script" id=1]
+[ext_resource path="res://art/background/exterior.cielo.png" type="Texture" id=2]
+[ext_resource path="res://art/background/exterior.nube.1.png" type="Texture" id=3]
+[ext_resource path="res://art/background/exterior.nube.2.png" type="Texture" id=4]
+[ext_resource path="res://art/background/exterior.nube.3.png" type="Texture" id=5]
+[ext_resource path="res://art/background/exterior.edificios.1.png" type="Texture" id=6]
+[ext_resource path="res://art/background/exterior.edificios.2.png" type="Texture" id=7]
+[ext_resource path="res://art/background/exterior.edificios.3.png" type="Texture" id=8]
+
+[node name="Parallax" type="ParallaxBackground"]
+rotation = -0.00193534
+transform = Transform2D( 0.999998, -0.00193534, 0.00193534, 0.999998, 0, 0 )
+script = ExtResource( 1 )
+
+[node name="cielo" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.1, 1 )
+
+[node name="Sprite" type="Sprite" parent="cielo"]
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 800, 600 )
+
+[node name="nube1" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.15, 1 )
+
+[node name="Sprite" type="Sprite" parent="nube1"]
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 800, 600 )
+
+[node name="nube2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.2, 1 )
+
+[node name="Sprite" type="Sprite" parent="nube2"]
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 800, 600 )
+
+[node name="nube3" type="ParallaxLayer" parent="."]
+rotation = -0.00193534
+motion_scale = Vector2( 0.25, 1 )
+
+[node name="Sprite" type="Sprite" parent="nube3"]
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 800, 600 )
+
+[node name="edificio1" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.3, 1 )
+
+[node name="Sprite" type="Sprite" parent="edificio1"]
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 800, 600 )
+
+[node name="edificio2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.35, 1 )
+
+[node name="Sprite" type="Sprite" parent="edificio2"]
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 800, 600 )
+
+[node name="edificio3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.4, 1 )
+
+[node name="Sprite" type="Sprite" parent="edificio3"]
+texture = ExtResource( 8 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 800, 600 )
