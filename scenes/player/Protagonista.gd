@@ -9,7 +9,7 @@ var jumping = false
 
 func _ready():
 	$AnimationPlayer.play("idle")
-	#add_to_group("Player")
+	add_to_group("Player")
 
 func get_input():
 	velocity.x = 0

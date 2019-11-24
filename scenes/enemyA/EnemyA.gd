@@ -12,7 +12,7 @@ var muerto = false
 var t_golpe = 0.2
 
 var t_ataque = 0.0
-var r_ataque = 0.6 # retraso entre ataque y ataque
+var r_ataque = 0.8 # retraso entre ataque y ataque
 
 export var vida = 200
 export var atq = 25
@@ -25,11 +25,12 @@ export var VEL_MOV = 150.0
 func _ready():
 	$AnimationPlayer.play("Idle")
 	add_to_group("Enemigo")
+	add_to_group("breakeable")
 	$BarraVida.max_value = vida
 	$BarraVida.value = vida
 	pass
 
-func danio(dmg):
+func take_damage(dmg):
 	if muerto:
 		return
 	if not $BarraVida.visible:
