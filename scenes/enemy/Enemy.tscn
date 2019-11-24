@@ -294,6 +294,7 @@ parameters/playback = SubResource( 21 )
 position = Vector2( 50.183, -6.01291 )
 shape = SubResource( 22 )
 disabled = true
+
 [connection signal="body_entered" from="DetectRadius" to="." method="_on_DetectRadius_body_entered"]
 [connection signal="body_exited" from="DetectRadius" to="." method="_on_DetectRadius_body_exited"]
 [connection signal="body_entered" from="AttackRadius" to="." method="_on_AttackRadius_body_entered"]
