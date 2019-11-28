@@ -47,7 +47,6 @@ func get_input():
 			$AnimationPlayer.play("crouch")
 	if Input.is_action_just_pressed("atacar"):
 		$AnimationPlayer.play("basic_punch")
-	
 	if Input.is_action_just_released("ui_right") or Input.is_action_just_released("ui_left") or Input.is_action_just_released("ui_down"):
 		$AnimationPlayer.play("idle")
 		

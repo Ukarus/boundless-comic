@@ -1,7 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/player/Protagonista.gd" type="Script" id=1]
 [ext_resource path="res://art/jugador/protagonista.png" type="Texture" id=2]
+[ext_resource path="res://sound/Golpe aire1.ogg" type="AudioStream" id=3]
+[ext_resource path="res://sound/Golpe aire2.ogg" type="AudioStream" id=4]
+[ext_resource path="res://sound/Golpe aire3.ogg" type="AudioStream" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "basic_punch"
@@ -77,6 +80,42 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( -78.8094, 79.5702 ), Vector2( -78.8094, 79.5702 ), Vector2( -78.8094, 79.5702 ), Vector2( -78.8094, 79.5702 ), Vector2( 79.9744, 90.1559 ), Vector2( -36.467, 90.1559 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("PunchSound1:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("PunchSound2:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("PunchSound3:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -203,7 +242,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 428.837, 943.385 )
+extents = Vector2( 395.876, 925.107 )
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 282.526, 118.017 )
@@ -217,6 +256,7 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 4
+frame = 11
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/basic_punch = SubResource( 1 )
@@ -226,19 +266,30 @@ anims/jumping = SubResource( 4 )
 anims/running = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -65.2292, 98.6254 )
+position = Vector2( -36.467, 90.1559 )
 shape = SubResource( 6 )
 
 [node name="AttackHitbox" type="Area2D" parent="." groups=[
 "player",
 ]]
+editor/display_folded = true
 
 [node name="AttackHitboxShaped" type="CollisionShape2D" parent="AttackHitbox"]
-position = Vector2( 821.175, -275.836 )
+position = Vector2( 926.23, -556.795 )
+rotation = -1.55754
 shape = SubResource( 7 )
 disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 2, 2 )
+
+[node name="PunchSound1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+
+[node name="PunchSound2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+
+[node name="PunchSound3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
 [connection signal="body_entered" from="AttackHitbox" to="." method="_on_AttackHitbox_body_entered"]

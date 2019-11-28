@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Ojo destrucción2.ogg-5d72f6b202146485cae7d8c6f99615f6.oggstr"
+
+[deps]
+
+source_file="res://sound/Ojo destrucción2.ogg"
+dest_files=[ "res://.import/Ojo destrucción2.ogg-5d72f6b202146485cae7d8c6f99615f6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

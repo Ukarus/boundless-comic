@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Ojo daño3.ogg-65e3fbd74fd4896b2f25d15bf26f85fd.oggstr"
+
+[deps]
+
+source_file="res://sound/Ojo daño3.ogg"
+dest_files=[ "res://.import/Ojo daño3.ogg-65e3fbd74fd4896b2f25d15bf26f85fd.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

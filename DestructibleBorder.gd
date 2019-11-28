@@ -9,8 +9,11 @@ func _ready():
 func take_damage(dmg):
 	self.durability -= dmg
 	if self.durability == 2:
+		$DamageTile.play()
 		$AnimationPlayer.play("second")
 	if self.durability == 1:
+		$DamageTile.play()
 		$AnimationPlayer.play("third")
 	if self.durability == 0:
+		$BreakTile.play()
 		$AnimationPlayer.play("final")

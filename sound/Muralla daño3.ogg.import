@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Muralla daño3.ogg-909123b7227e7dcc1eee2e7a5f8fc923.oggstr"
+
+[deps]
+
+source_file="res://sound/Muralla daño3.ogg"
+dest_files=[ "res://.import/Muralla daño3.ogg-909123b7227e7dcc1eee2e7a5f8fc923.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/platforms/Path2D.gd" type="Script" id=1]
-[ext_resource path="res://art/GUI/emeralds_icon.png" type="Texture" id=2]
+[ext_resource path="res://art/plataformas/plataforma.png" type="Texture" id=2]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -9,7 +9,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 39, 13 )
+extents = Vector2( 57.3238, 24.7772 )
 
 [node name="lateral" type="Node2D"]
 
@@ -25,10 +25,9 @@ rotation = -0.003096
 [node name="KinematicBody2D" type="KinematicBody2D" parent="Path2D/PathFollow2D"]
 
 [node name="Sprite" type="Sprite" parent="Path2D/PathFollow2D/KinematicBody2D"]
-position = Vector2( -7.15256e-07, 0 )
-rotation = 0.988148
+position = Vector2( -7.15256e-007, 0 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/KinematicBody2D"]
-position = Vector2( -3, 1 )
+position = Vector2( 0.281524, 21.4982 )
 shape = SubResource( 2 )

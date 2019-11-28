@@ -323,13 +323,13 @@ position = Vector2( 10.8335, 11.512 )
 disabled = false
 
 [node name="Pendulo" parent="." instance=ExtResource( 10 )]
-position = Vector2( 4074.22, 566.103 )
+position = Vector2( 2779.3, 257.789 )
 
 [node name="PlataformaMomentanea" parent="." instance=ExtResource( 11 )]
-position = Vector2( 5566.88, 601.292 )
+position = Vector2( 3346.18, 839.224 )
 
 [node name="Fija" parent="." instance=ExtResource( 12 )]
-position = Vector2( 5455.28, 939.799 )
+position = Vector2( 4099.79, 712.682 )
 
 [node name="vertical" parent="." instance=ExtResource( 13 )]
 position = Vector2( 3643.02, 927.848 )
@@ -340,7 +340,7 @@ position = Vector2( 3776.92, 493.739 )
 [node name="lateral" parent="." instance=ExtResource( 14 )]
 position = Vector2( 2315.68, 534.564 )
 
-[node name="Node2D" parent="." instance=ExtResource( 15 )]
+[node name="Vertical" parent="." instance=ExtResource( 15 )]
 position = Vector2( 3068.47, 668.218 )
 
 [editable path="DestructibleBorder2"]

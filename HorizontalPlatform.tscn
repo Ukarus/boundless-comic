@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://HorizontalPlatform.gd" type="Script" id=1]
+[ext_resource path="res://art/plataformas/plataforma.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 55.8459, 23.6803 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+speed = 20
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( 1.07545, 20.7921 )
+shape = SubResource( 2 )

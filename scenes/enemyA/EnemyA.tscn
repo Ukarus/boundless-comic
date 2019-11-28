@@ -92,5 +92,4 @@ rect_scale = Vector2( 0.5, 0.5 )
 value = 50.0
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 4 )
-
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

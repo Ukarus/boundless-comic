@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://DestructibleBorder.gd" type="Script" id=1]
 [ext_resource path="res://art/tiles/borders_2.png" type="Texture" id=2]
+[ext_resource path="res://sound/Muralla daño1.ogg" type="AudioStream" id=3]
+[ext_resource path="res://sound/Muralla destrucción1.ogg" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 89.0625, 230.491 )
@@ -211,15 +213,20 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 vframes = 3
 hframes = 2
-frame = 5
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.27739, -2.7739 )
+position = Vector2( 10.8335, 11.512 )
 shape = SubResource( 1 )
-disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/final = SubResource( 2 )
 anims/idle = SubResource( 3 )
 anims/second = SubResource( 4 )
 anims/third = SubResource( 5 )
+
+[node name="DamageTile" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+
+[node name="BreakTile" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
