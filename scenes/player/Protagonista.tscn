@@ -250,6 +250,7 @@ extents = Vector2( 282.526, 118.017 )
 [node name="KinematicBody2D" type="KinematicBody2D" groups=[
 "player",
 ]]
+scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -282,7 +283,6 @@ disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 2, 2 )
 
 [node name="PunchSound1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )

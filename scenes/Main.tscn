@@ -14,19 +14,19 @@ script = ExtResource( 1 )
 [node name="Node2D" parent="." instance=ExtResource( 2 )]
 
 [node name="GUI" parent="." instance=ExtResource( 3 )]
-margin_left = 63.94
-margin_top = -342.495
-margin_right = 603.94
-margin_bottom = -249.495
+margin_left = 18.5135
+margin_top = -150.0
+margin_right = 562.0
+margin_bottom = -60.0
 
 [node name="Turret" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1607.16, 93.6301 )
+position = Vector2( 4195.59, 1153.52 )
 
 [node name="EnemyA" parent="." instance=ExtResource( 5 )]
-position = Vector2( 4599.84, 1366.97 )
+position = Vector2( 1910.47, 224.169 )
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 233.389, -1.79639 )
+position = Vector2( 200.24, 300.228 )
 scale = Vector2( 0.1, 0.1 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -35,14 +35,14 @@ editor/display_folded = true
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 1059.4, 75.6714 )
+position = Vector2( 1050.73, 70.9167 )
 scale = Vector2( 1.05413, 1 )
 texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 2000, 520 )
 
 [node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 1059.4, 75.6714 )
+position = Vector2( 3233.25, 75.6714 )
 scale = Vector2( 1.05413, 1 )
 texture = ExtResource( 7 )
 region_enabled = true
