@@ -26,11 +26,10 @@ position = Vector2( 4195.59, 1153.52 )
 position = Vector2( 1910.47, 224.169 )
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 200.24, 300.228 )
+position = Vector2( 2582.63, 721.585 )
 scale = Vector2( 0.1, 0.1 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-editor/display_folded = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://art/roadgrey.png" type="Texture" id=1]
 [ext_resource path="res://art/roadwhite.png" type="Texture" id=2]
@@ -9,12 +9,10 @@
 [ext_resource path="res://art/tiles/borders_fixed.png" type="Texture" id=7]
 [ext_resource path="res://art/tiles/borders2.png" type="Texture" id=8]
 [ext_resource path="res://scenes/tiles/DestructibleBorder.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/platforms/Pendulo.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/platforms/PlataformaMomentanea.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/platforms/Platform.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/platforms/vertical.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scenes/platforms/lateral.tscn" type="PackedScene" id=14]
-[ext_resource path="res://scenes/tiles/Horizontal2.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/platforms/PlataformaMomentanea.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/platforms/Platform.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/Waypoints.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/tiles/MovingPlatform.tscn" type="PackedScene" id=13]
 
 [sub_resource type="AnimatedTexture" id=1]
 flags = 4
@@ -318,29 +316,35 @@ scale = Vector2( 0.36, 0.7 )
 [node name="Sprite" parent="DestructibleBorder2" index="0"]
 frame = 3
 
-[node name="CollisionShape2D" parent="DestructibleBorder2" index="1"]
-position = Vector2( 10.8335, 11.512 )
-disabled = false
+[node name="PlataformaMomentanea" parent="." instance=ExtResource( 10 )]
+position = Vector2( 4357.45, 499.114 )
 
-[node name="Pendulo" parent="." instance=ExtResource( 10 )]
-position = Vector2( 2779.3, 257.789 )
+[node name="Fija" parent="." instance=ExtResource( 11 )]
+position = Vector2( 4063.3, 514.348 )
 
-[node name="PlataformaMomentanea" parent="." instance=ExtResource( 11 )]
-position = Vector2( 3346.18, 839.224 )
+[node name="Waypoints" parent="." instance=ExtResource( 12 )]
+editor/display_folded = true
+position = Vector2( 3026.38, 727.323 )
 
-[node name="Fija" parent="." instance=ExtResource( 12 )]
-position = Vector2( 4099.79, 712.682 )
+[node name="1" type="Position2D" parent="Waypoints"]
+position = Vector2( 1.29077, -207.61 )
 
-[node name="vertical" parent="." instance=ExtResource( 13 )]
-position = Vector2( 3643.02, 927.848 )
+[node name="MovingPlatform" parent="." instance=ExtResource( 13 )]
+position = Vector2( 3023, 734.843 )
+waypoints_path = NodePath("../Waypoints")
 
-[node name="vertical2" parent="." instance=ExtResource( 13 )]
-position = Vector2( 3776.92, 493.739 )
+[node name="MovingPlatform2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 3334.59, 516.518 )
+waypoints_path = NodePath("../Waypoints2")
 
-[node name="lateral" parent="." instance=ExtResource( 14 )]
-position = Vector2( 2315.68, 534.564 )
+[node name="Waypoints2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 3339.05, 498.257 )
 
-[node name="Vertical" parent="." instance=ExtResource( 15 )]
-position = Vector2( 3068.47, 668.218 )
+[node name="Position2D" type="Position2D" parent="Waypoints2"]
+position = Vector2( 470.545, 6.4754 )
 
 [editable path="DestructibleBorder2"]
+
+[editable path="Waypoints"]
+
+[editable path="Waypoints2"]
