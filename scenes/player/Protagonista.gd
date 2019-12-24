@@ -6,6 +6,8 @@ export (int) var gravity = 1200
 export (int) var life = 300
 var velocity = Vector2()
 var jumping = false
+var attacks = ["attack1", "attack2", "attack3"]
+var next_attack = 0
 signal update_life
 
 func _ready():
@@ -46,7 +48,12 @@ func get_input():
 		if is_on_floor():
 			$AnimationPlayer.play("crouch")
 	if Input.is_action_just_pressed("atacar"):
-		$AnimationPlayer.play("basic_punch")
+		$AnimationPlayer.play(attacks[next_attack])
+		if (next_attack < attacks.size() - 1 ):
+			next_attack += 1
+		else:
+			next_attack = 0
+		#$AnimationPlayer.play("basic_punch")
 	if Input.is_action_just_released("ui_right") or Input.is_action_just_released("ui_left") or Input.is_action_just_released("ui_down"):
 		$AnimationPlayer.play("idle")
 		

@@ -26,6 +26,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=3]
+length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -72,12 +73,11 @@ anims/Run = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
-vframes = 2
+vframes = 3
 hframes = 4
-frame = 1
+frame = 2
 
 [node name="AreaAtaque" type="Area2D" parent="."]
-editor/display_folded = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AreaAtaque"]
 polygon = PoolVector2Array( -1.31003, -103.596, -94.1638, -52.5267, -122.794, 8.60197, -91.0687, 69.7307, -2.08383, 100.682 )

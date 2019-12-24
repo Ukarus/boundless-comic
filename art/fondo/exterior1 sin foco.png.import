@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/guadaña.png-3c17c82a646a33c73badc0a5a17f4d53.stex"
+path="res://.import/exterior1 sin foco.png-62cf0baf45817f2e447de51da2b449f5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/enemigos y personaje/guadaña.png"
-dest_files=[ "res://.import/guadaña.png-3c17c82a646a33c73badc0a5a17f4d53.stex" ]
+source_file="res://art/fondo/exterior1 sin foco.png"
+dest_files=[ "res://.import/exterior1 sin foco.png-62cf0baf45817f2e447de51da2b449f5.stex" ]
 
 [params]
 

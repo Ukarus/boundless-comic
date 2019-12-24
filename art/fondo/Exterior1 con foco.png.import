@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/puños.png-0c8219662a633a91cb184e565ee7984d.stex"
+path="res://.import/Exterior1 con foco.png-31efd09b707421dc390100ca44f394b7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/enemigos y personaje/puños.png"
-dest_files=[ "res://.import/puños.png-0c8219662a633a91cb184e565ee7984d.stex" ]
+source_file="res://art/fondo/Exterior1 con foco.png"
+dest_files=[ "res://.import/Exterior1 con foco.png-31efd09b707421dc390100ca44f394b7.stex" ]
 
 [params]
 
