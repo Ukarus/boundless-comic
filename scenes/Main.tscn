@@ -10,8 +10,12 @@
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -254.117 ],
+"_edit_vertical_guides_": [ -60.8063 ]
+}
 
-[node name="Node2D" parent="." instance=ExtResource( 2 )]
+[node name="Vineta1" parent="." instance=ExtResource( 2 )]
 
 [node name="GUI" parent="." instance=ExtResource( 3 )]
 margin_left = 18.5135
@@ -29,6 +33,7 @@ position = Vector2( 1910.47, 224.169 )
 position = Vector2( 269.141, 297.578 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+editor/display_folded = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 

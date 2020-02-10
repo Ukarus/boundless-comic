@@ -60,6 +60,7 @@ tracks/0/keys = {
 [node name="EnemyA" type="KinematicBody2D" groups=[
 "Enemigo",
 ]]
+collision_layer = 2
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

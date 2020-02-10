@@ -1,25 +1,26 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
-[ext_resource path="res://art/roadgrey.png" type="Texture" id=1]
-[ext_resource path="res://art/roadwhite.png" type="Texture" id=2]
-[ext_resource path="res://art/background/exterior 2.png" type="Texture" id=3]
-[ext_resource path="res://BusNode.tscn" type="PackedScene" id=4]
-[ext_resource path="res://art/tiles/tilemap.23.nov.png" type="Texture" id=5]
-[ext_resource path="res://art/tiles/extra_tilemaps.png" type="Texture" id=6]
-[ext_resource path="res://art/tiles/borders_fixed.png" type="Texture" id=7]
-[ext_resource path="res://art/tiles/borders2.png" type="Texture" id=8]
-[ext_resource path="res://scenes/tiles/DestructibleBorder.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/platforms/PlataformaMomentanea.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/platforms/Platform.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/Waypoints.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/tiles/MovingPlatform.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/Vineta1.gd" type="Script" id=1]
+[ext_resource path="res://art/roadgrey.png" type="Texture" id=2]
+[ext_resource path="res://art/roadwhite.png" type="Texture" id=3]
+[ext_resource path="res://art/background/exterior 2.png" type="Texture" id=4]
+[ext_resource path="res://BusNode.tscn" type="PackedScene" id=5]
+[ext_resource path="res://art/tiles/tilemap.23.nov.png" type="Texture" id=6]
+[ext_resource path="res://art/tiles/extra_tilemaps.png" type="Texture" id=7]
+[ext_resource path="res://art/tiles/borders_fixed.png" type="Texture" id=8]
+[ext_resource path="res://art/tiles/borders2.png" type="Texture" id=9]
+[ext_resource path="res://scenes/tiles/DestructibleBorder.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/platforms/PlataformaMomentanea.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/platforms/Platform.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/Waypoints.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/tiles/MovingPlatform.tscn" type="PackedScene" id=14]
 
 [sub_resource type="AnimatedTexture" id=1]
 flags = 4
 frames = 2
 fps = 6.0
-frame_0/texture = ExtResource( 1 )
-frame_1/texture = ExtResource( 2 )
+frame_0/texture = ExtResource( 2 )
+frame_1/texture = ExtResource( 3 )
 frame_1/delay_sec = 0.0
 
 [sub_resource type="TileSet" id=2]
@@ -54,7 +55,7 @@ points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 
 [sub_resource type="TileSet" id=9]
 0/name = "tilemap.23.nov.png 0"
-0/texture = ExtResource( 5 )
+0/texture = ExtResource( 6 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 256, 128, 128, 128 )
@@ -70,7 +71,7 @@ points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 } ]
 0/z_index = 0
 1/name = "tilemap.23.nov.png 1"
-1/texture = ExtResource( 5 )
+1/texture = ExtResource( 6 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 0, 0, 128, 128 )
@@ -80,7 +81,7 @@ points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 1/shapes = [  ]
 1/z_index = 0
 2/name = "tilemap.23.nov.png 2"
-2/texture = ExtResource( 5 )
+2/texture = ExtResource( 6 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 128, 0, 128, 128 )
@@ -90,7 +91,7 @@ points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 2/shapes = [  ]
 2/z_index = 0
 3/name = "tilemap.23.nov.png 3"
-3/texture = ExtResource( 5 )
+3/texture = ExtResource( 6 )
 3/tex_offset = Vector2( 0, 0 )
 3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 256, 0, 128, 128 )
@@ -106,7 +107,7 @@ points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 } ]
 3/z_index = 0
 4/name = "tilemap.23.nov.png 4"
-4/texture = ExtResource( 5 )
+4/texture = ExtResource( 6 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )
 4/region = Rect2( 128, 128, 128, 128 )
@@ -116,7 +117,7 @@ points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 4/shapes = [  ]
 4/z_index = 0
 5/name = "tilemap.23.nov.png 5"
-5/texture = ExtResource( 5 )
+5/texture = ExtResource( 6 )
 5/tex_offset = Vector2( 0, 0 )
 5/modulate = Color( 1, 1, 1, 1 )
 5/region = Rect2( 0, 128, 128, 128 )
@@ -132,7 +133,7 @@ points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 } ]
 5/z_index = 0
 6/name = "tilemap.23.nov.png 6"
-6/texture = ExtResource( 5 )
+6/texture = ExtResource( 6 )
 6/tex_offset = Vector2( 0, 0 )
 6/modulate = Color( 1, 1, 1, 1 )
 6/region = Rect2( 128, 256, 128, 128 )
@@ -142,7 +143,7 @@ points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 6/shapes = [  ]
 6/z_index = 0
 7/name = "tilemap.23.nov.png 7"
-7/texture = ExtResource( 5 )
+7/texture = ExtResource( 6 )
 7/tex_offset = Vector2( 0, 0 )
 7/modulate = Color( 1, 1, 1, 1 )
 7/region = Rect2( 256, 256, 128, 128 )
@@ -158,7 +159,7 @@ points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 } ]
 7/z_index = 0
 8/name = "tilemap.23.nov.png 8"
-8/texture = ExtResource( 5 )
+8/texture = ExtResource( 6 )
 8/tex_offset = Vector2( 0, 0 )
 8/modulate = Color( 1, 1, 1, 1 )
 8/region = Rect2( 0, 256, 128, 128 )
@@ -174,7 +175,7 @@ points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 } ]
 8/z_index = 0
 9/name = "extra_tilemaps.png 9"
-9/texture = ExtResource( 6 )
+9/texture = ExtResource( 7 )
 9/tex_offset = Vector2( 0, 0 )
 9/modulate = Color( 1, 1, 1, 1 )
 9/region = Rect2( 160, 160, 128, 128 )
@@ -201,7 +202,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 40, 0, 40 )
 
 [sub_resource type="TileSet" id=13]
 0/name = "borders_fixed.png 0"
-0/texture = ExtResource( 7 )
+0/texture = ExtResource( 8 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 192, 64, 64, 384 )
@@ -217,7 +218,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 40, 0, 40 )
 } ]
 0/z_index = 0
 1/name = "borders_fixed.png 1"
-1/texture = ExtResource( 7 )
+1/texture = ExtResource( 8 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 64, 768, 384, 64 )
@@ -233,7 +234,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 40, 0, 40 )
 } ]
 1/z_index = 0
 2/name = "borders2.png 2"
-2/texture = ExtResource( 8 )
+2/texture = ExtResource( 9 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 24, 72, 16, 40 )
@@ -249,7 +250,11 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 40, 0, 40 )
 } ]
 2/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 158.352, 117.644 )
+
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
 
 [node name="road" type="TileMap" parent="."]
 tile_set = SubResource( 2 )
@@ -259,34 +264,34 @@ tile_data = PoolIntArray( 3080199, 0, 0, 3080200, 0, 0, 3080201, 0, 0, 3080203, 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 500, 2210 )
 scale = Vector2( 3.90625, 2.10156 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Sprite2" type="Sprite" parent="."]
 position = Vector2( 2480, 2240 )
 scale = Vector2( 3.90625, 2.10156 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Sprite6" type="Sprite" parent="."]
 position = Vector2( 5160, 2200 )
 scale = Vector2( 1.64063, 2.10156 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Sprite4" type="Sprite" parent="."]
 position = Vector2( 3440, 2230 )
 scale = Vector2( 3.90625, 2.10156 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Sprite3" type="Sprite" parent="."]
 position = Vector2( 1490, 2210 )
 scale = Vector2( 3.90625, 2.10156 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Sprite5" type="Sprite" parent="."]
 position = Vector2( 4450, 2210 )
 scale = Vector2( 3.90625, 2.10156 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
-[node name="BusNode" parent="." instance=ExtResource( 4 )]
+[node name="BusNode" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1060, 2850 )
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -299,15 +304,15 @@ tile_set = SubResource( 13 )
 format = 1
 tile_data = PoolIntArray( -196609, 0, 0, -262144, 1, 0, -262138, 1, 0, -262133, 1, 0, -262127, 1, 0, -262121, 1, 0, -262115, 1, 0, -262109, 1, 0, -262103, 1, 0, -262097, 1, 0, -262091, 1, 0, -262085, 1, 0, -262079, 1, 0, -262074, 1, 0, -262068, 1, 0, -262062, 1, 0, -262056, 1, 0, -262050, 1, 0, -262037, 1, 0, -262031, 1, 0, -262025, 1, 0, -262019, 1, 0, -262013, 1, 0, -262010, 1, 0, -262005, 0, 0, -196575, 0, 0, -196527, 0, 0, 81, 0, 0, 131071, 0, 0, 131211, 0, 0, 524287, 0, 0, 524321, 0, 0, 917503, 0, 0, 852049, 0, 0, 917537, 0, 0, 917643, 0, 0, 1310719, 0, 0, 1245217, 0, 0, 1245265, 0, 0, 1310859, 0, 0, 1703935, 1, 0, 1638405, 1, 0, 1638406, 1, 0, 1638417, 1, 0, 1638423, 1, 0, 1638429, 1, 0, 1638435, 1, 0, 1638441, 1, 0, 1638447, 1, 0, 1638453, 1, 0, 1638459, 1, 0, 1638465, 1, 0, 1638471, 1, 0, 1638477, 1, 0, 1638479, 1, 0, 1638485, 1, 0, 1638491, 1, 0, 1638497, 1, 0, 1638503, 1, 0, 1638509, 1, 0, 1638515, 1, 0, 1638521, 1, 0, 1638527, 1, 0, 1638533, 1, 0, 1769471, 0, 0, 1704020, 0, 0, 2162687, 0, 0, 2097236, 0, 0, 2555903, 0, 0, 2490452, 0, 0, 2949119, 0, 0, 2883668, 0, 0, 3342335, 0, 0, 3276884, 0, 0, 3604480, 1, 0, 3604486, 1, 0, 3604492, 1, 0, 3604498, 1, 0, 3604504, 1, 0, 3604510, 1, 0, 3604516, 1, 0, 3604522, 1, 0, 3604528, 1, 0, 3604534, 1, 0, 3604540, 1, 0, 3604546, 1, 0, 3604552, 1, 0, 3604558, 1, 0 )
 
-[node name="DestructibleBorder" parent="." instance=ExtResource( 9 )]
+[node name="DestructibleBorder" parent="." instance=ExtResource( 10 )]
 position = Vector2( 2140.06, 347.839 )
 scale = Vector2( 0.36, 0.7 )
 
-[node name="DestructibleBorder3" parent="." instance=ExtResource( 9 )]
+[node name="DestructibleBorder3" parent="." instance=ExtResource( 10 )]
 position = Vector2( 5213.16, 605.441 )
 scale = Vector2( 0.36, 0.94 )
 
-[node name="DestructibleBorder2" parent="." instance=ExtResource( 9 )]
+[node name="DestructibleBorder2" parent="." instance=ExtResource( 10 )]
 editor/display_folded = true
 position = Vector2( 921.286, 1636.63 )
 rotation = -1.5708
@@ -316,32 +321,45 @@ scale = Vector2( 0.36, 0.7 )
 [node name="Sprite" parent="DestructibleBorder2" index="0"]
 frame = 3
 
-[node name="PlataformaMomentanea" parent="." instance=ExtResource( 10 )]
+[node name="PlataformaMomentanea" parent="." instance=ExtResource( 11 )]
 position = Vector2( 4357.45, 499.114 )
 
-[node name="Fija" parent="." instance=ExtResource( 11 )]
+[node name="Fija" parent="." instance=ExtResource( 12 )]
 position = Vector2( 4063.3, 514.348 )
 
-[node name="Waypoints" parent="." instance=ExtResource( 12 )]
+[node name="Waypoints" parent="." instance=ExtResource( 13 )]
 editor/display_folded = true
 position = Vector2( 3026.38, 727.323 )
 
 [node name="1" type="Position2D" parent="Waypoints"]
 position = Vector2( 1.29077, -207.61 )
 
-[node name="MovingPlatform" parent="." instance=ExtResource( 13 )]
+[node name="MovingPlatform" parent="." instance=ExtResource( 14 )]
 position = Vector2( 3023, 734.843 )
 waypoints_path = NodePath("../Waypoints")
 
-[node name="MovingPlatform2" parent="." instance=ExtResource( 13 )]
+[node name="MovingPlatform2" parent="." instance=ExtResource( 14 )]
 position = Vector2( 3334.59, 516.518 )
 waypoints_path = NodePath("../Waypoints2")
 
-[node name="Waypoints2" parent="." instance=ExtResource( 12 )]
+[node name="Waypoints2" parent="." instance=ExtResource( 13 )]
+editor/display_folded = true
 position = Vector2( 3339.05, 498.257 )
 
 [node name="Position2D" type="Position2D" parent="Waypoints2"]
 position = Vector2( 470.545, 6.4754 )
+
+[node name="DieZone" type="Area2D" parent="."]
+position = Vector2( 935.229, 1460.95 )
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DieZone"]
+position = Vector2( -6.0293, 22.6101 )
+shape = SubResource( 14 )
+
+[node name="StartPosition" type="Position2D" parent="."]
+position = Vector2( 124.964, 268.105 )
+[connection signal="body_entered" from="DieZone" to="." method="_on_DieZone_body_entered"]
 
 [editable path="DestructibleBorder2"]
 

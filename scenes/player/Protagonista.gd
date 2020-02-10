@@ -8,6 +8,8 @@ var velocity = Vector2()
 var jumping = false
 var attacks = ["attack1", "attack2", "attack3"]
 var next_attack = 0
+var checkpoint = null
+onready var hitbox_degrees = $PlayerHitbox.rotation_degrees
 signal update_life
 
 func _ready():
@@ -31,6 +33,9 @@ func get_input():
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += run_speed
 		$Sprite.scale.x = 1
+		#print($PlayerHitbox.rotation_degrees < 0, $PlayerHitbox.rotation_degrees)
+		if $PlayerHitbox.rotation_degrees < 0:
+			$PlayerHitbox.rotation_degrees *= -1
 		$AttackHitbox.scale.x = 1
 		if Input.is_action_pressed("ui_up") || jumping:
 			$AnimationPlayer.play("jumping")
@@ -39,6 +44,9 @@ func get_input():
 	if Input.is_action_pressed("ui_left"):
 		velocity.x -= run_speed
 		$Sprite.scale.x = -1
+		print($PlayerHitbox.rotation_degrees > 0, $PlayerHitbox.rotation_degrees)
+		#if $PlayerHitbox.rotation_degrees > 0:
+		#$PlayerHitbox.rotation_degrees *= -1
 		$AttackHitbox.scale.x = -1
 		if Input.is_action_pressed("ui_up") || jumping:
 			$AnimationPlayer.play("jumping")
@@ -69,3 +77,4 @@ func _on_AttackHitbox_body_entered(body):
 		body.take_damage(1)
 	if body.is_in_group("Enemigo"):
 		body.take_damage(30)
+		
