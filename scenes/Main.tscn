@@ -55,3 +55,4 @@ region_rect = Rect2( 0, 0, 2000, 520 )
 
 [node name="EnemyB" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1898.53, 357.542 )
+scale = Vector2( 1, 1 )

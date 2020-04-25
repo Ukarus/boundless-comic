@@ -18,7 +18,7 @@ export var r_ataque = 1.5 # retraso entre ataque y ataque
 export var vida = 200
 export var atq = 25
 
-export var RANGO_ATAQUE = 160.0
+export var RANGO_ATAQUE = 450
 export var RANGO_MOV = 1000.0
 export var VEL_MOV = 150.0
 
@@ -40,7 +40,7 @@ func take_damage(dmg):
 	# Empujar personaje
 	$BarraVida.value = vida
 	if vida <= 0:
-		$AnimationPlayer.play("Muerte")
+		$AnimationPlayer.play("Death")
 		$BarraVida.hide()
 		queue_free()
 
@@ -118,8 +118,6 @@ func _physics_process(delta):
 			t_ataque = 0.0
 			ataque_activo = true
 			ataque_retraso = false
-			var player = get_tree().get_nodes_in_group("Player")[0]
-			player.take_damage(atq)
 			estado = estados.IDLE
 		pass
 
@@ -128,9 +126,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		estado = estados.ATAQUE_RETRASO
 		ataque_retraso = true
 		$AnimationPlayer.play("Idle")
-	pass # Replace with function body.
-
-
 
 func _on_DetectionArea_body_entered(body):
 	if body.is_in_group("player"):

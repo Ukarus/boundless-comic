@@ -32,7 +32,6 @@ func get_input():
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += run_speed
 		$Sprite.scale.x = 1
-		#print($PlayerHitbox.rotation_degrees < 0, $PlayerHitbox.rotation_degrees)
 		if $PlayerHitbox.rotation_degrees < 0:
 			$PlayerHitbox.rotation_degrees *= -1
 		$AttackHitbox.scale.x = 1
@@ -43,9 +42,6 @@ func get_input():
 	if Input.is_action_pressed("ui_left"):
 		velocity.x -= run_speed
 		$Sprite.scale.x = -1
-		print($PlayerHitbox.rotation_degrees > 0, $PlayerHitbox.rotation_degrees)
-		#if $PlayerHitbox.rotation_degrees > 0:
-		#$PlayerHitbox.rotation_degrees *= -1
 		$AttackHitbox.scale.x = -1
 		if Input.is_action_pressed("ui_up") || jumping:
 			$AnimationPlayer.play("jumping")
@@ -60,7 +56,6 @@ func get_input():
 			next_attack += 1
 		else:
 			next_attack = 0
-		#$AnimationPlayer.play("basic_punch")
 	if Input.is_action_just_released("ui_right") or Input.is_action_just_released("ui_left") or Input.is_action_just_released("ui_down"):
 		$AnimationPlayer.play("idle")
 		
