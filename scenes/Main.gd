@@ -24,9 +24,8 @@ func reset_to_checkpoint():
 	$Player.position.x = $Vineta1/StartPosition.position.x
 	$Player.position.y = $Vineta1/StartPosition.position.y
 
-func update_life():
-	pass
-	#var player_life = $Player.life
-	#$GUI/HBoxContainer/Bars/Bar/Gauge.max_value = player_life
-	#$GUI/HBoxContainer/Bars/Bar/Gauge.value = player_life
-	#$GUI/HBoxContainer/Bars/Bar/Count/Background/Number.text = player_life as String
+func update_life(life):
+	var player_life = life
+	#$GUI/HBoxContainer/Bars/LifeBar/Gauge.max_value = player_life
+	$GUI/HBoxContainer/Bars/LifeBar/Gauge.value = player_life
+	$GUI/HBoxContainer/Bars/LifeBar/Count/Background/Number.text = player_life as String

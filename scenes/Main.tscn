@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Vineta1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Turret.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/enemyA/EnemyA.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Boss/Boss.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/player/Protagonista.tscn" type="PackedScene" id=6]
 [ext_resource path="res://art/background/exterior 2.png" type="Texture" id=7]
+[ext_resource path="res://scenes/enemyB/EnemyB.tscn" type="PackedScene" id=8]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
@@ -26,8 +27,8 @@ margin_bottom = -60.0
 [node name="Turret" parent="." instance=ExtResource( 4 )]
 position = Vector2( 4195.59, 1153.52 )
 
-[node name="EnemyA" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1910.47, 224.169 )
+[node name="Boss" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2697.05, 697.943 )
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 269.141, 297.578 )
@@ -36,9 +37,10 @@ position = Vector2( 269.141, 297.578 )
 editor/display_folded = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+editor/display_folded = true
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 1050.73, 70.9167 )
+position = Vector2( 1056, 67.6124 )
 scale = Vector2( 1.05413, 1 )
 texture = ExtResource( 7 )
 region_enabled = true
@@ -50,3 +52,6 @@ scale = Vector2( 1.05413, 1 )
 texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 2000, 520 )
+
+[node name="EnemyB" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1898.53, 357.542 )

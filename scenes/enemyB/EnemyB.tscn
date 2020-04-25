@@ -5,12 +5,11 @@
 [ext_resource path="res://art/GUI/lifebar_bg.png" type="Texture" id=3]
 [ext_resource path="res://art/GUI/lifebar_fill.png" type="Texture" id=4]
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 30.0
 height = 160.0
 
-[sub_resource type="Animation" id=1]
-resource_name = "Attack"
+[sub_resource type="Animation" id=2]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -25,8 +24,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Idle"
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -40,8 +38,7 @@ tracks/0/keys = {
 "values": [ 5 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Run"
+[sub_resource type="Animation" id=4]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -70,12 +67,12 @@ hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 9.8219, 4.91096 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Attack = SubResource( 1 )
-anims/Idle = SubResource( 2 )
-anims/Run = SubResource( 3 )
+anims/Attack = SubResource( 2 )
+anims/Idle = SubResource( 3 )
+anims/Run = SubResource( 4 )
 
 [node name="BarraVida" type="TextureProgress" parent="."]
 visible = false
@@ -92,5 +89,4 @@ position = Vector2( -125.514, -87.3317 )
 
 [node name="ShootPointR" type="Position2D" parent="."]
 position = Vector2( 125.432, -87.3317 )
-
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

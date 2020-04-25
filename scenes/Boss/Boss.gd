@@ -152,8 +152,10 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 
 func _on_DetectionArea_body_entered(body):
+	print(body)
 	if body.is_in_group("player"):
 		pass
 
 func _on_AreaAtaque_body_entered(body):
+	print(body)
 	pass # Replace with function body.

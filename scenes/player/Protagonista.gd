@@ -18,8 +18,7 @@ func _ready():
 
 func take_damage(dmg):
 	self.life -= dmg
-	print(self.life)
-	emit_signal("update_life")
+	emit_signal("update_life", self.life)
 
 func get_input():
 	velocity.x = 0

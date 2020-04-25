@@ -21,7 +21,7 @@ custom_constants/margin_bottom = 20
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 1060.0
+margin_right = 1900.0
 margin_bottom = 73.0
 
 [node name="Bars" type="VBoxContainer" parent="HBoxContainer"]
@@ -33,6 +33,7 @@ margin_right = 500.0
 margin_bottom = 53.0
 
 [node name="Count" type="MarginContainer" parent="HBoxContainer/Bars/LifeBar"]
+editor/display_folded = true
 margin_right = 100.0
 margin_bottom = 53.0
 
