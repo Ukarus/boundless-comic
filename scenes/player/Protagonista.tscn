@@ -629,8 +629,8 @@ shape = SubResource( 10 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-limit_left = -67
-limit_top = -254
+limit_left = 10000
+limit_top = 10000
 smoothing_enabled = true
 
 [node name="PunchSound1" type="AudioStreamPlayer2D" parent="."]
