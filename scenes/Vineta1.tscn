@@ -330,6 +330,10 @@ position = Vector2( 4063.3, 514.348 )
 [node name="Waypoints" parent="." instance=ExtResource( 13 )]
 editor/display_folded = true
 position = Vector2( 3026.38, 727.323 )
+editor_process = true
+line_color = Color( 0.228943, 0.710254, 0.945312, 1 )
+line_width = 10.0
+triangle_color = Color( 0.722656, 0.908997, 1, 1 )
 
 [node name="1" type="Position2D" parent="Waypoints"]
 position = Vector2( 1.29077, -207.61 )
@@ -345,6 +349,10 @@ waypoints_path = NodePath("../Waypoints2")
 [node name="Waypoints2" parent="." instance=ExtResource( 13 )]
 editor/display_folded = true
 position = Vector2( 3339.05, 498.257 )
+editor_process = true
+line_color = Color( 0.228943, 0.710254, 0.945312, 1 )
+line_width = 10.0
+triangle_color = Color( 0.722656, 0.908997, 1, 1 )
 
 [node name="Position2D" type="Position2D" parent="Waypoints2"]
 position = Vector2( 470.545, 6.4754 )

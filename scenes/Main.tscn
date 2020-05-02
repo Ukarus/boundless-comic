@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
-[ext_resource path="res://scenes/Vineta1.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Turret.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/Boss/Boss.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/player/Protagonista.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/enemyB/EnemyB.tscn" type="PackedScene" id=6]
-[ext_resource path="res://art/background/exterior 2.png" type="Texture" id=7]
-[ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Vineta1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Turret.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Boss/Boss.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/player/Protagonista.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/enemyB/EnemyB.tscn" type="PackedScene" id=7]
+[ext_resource path="res://art/background/exterior 2.png" type="Texture" id=8]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
@@ -16,16 +16,25 @@ __meta__ = {
 "_edit_vertical_guides_": [ -60.8063 ]
 }
 
-[node name="Vineta1" parent="." instance=ExtResource( 2 )]
+[node name="HUD" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="GUI" parent="HUD" instance=ExtResource( 2 )]
+margin_left = 75.5978
+margin_top = 89.6626
+margin_right = 75.5979
+margin_bottom = 182.663
+
+[node name="Vineta1" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -3.4248 )
 
-[node name="Turret" parent="." instance=ExtResource( 3 )]
+[node name="Turret" parent="." instance=ExtResource( 4 )]
 position = Vector2( 4195.59, 1153.52 )
 
-[node name="Boss" parent="." instance=ExtResource( 4 )]
+[node name="Boss" parent="." instance=ExtResource( 5 )]
 position = Vector2( 2697.05, 697.943 )
 
-[node name="Player" parent="." instance=ExtResource( 5 )]
+[node name="Player" parent="." instance=ExtResource( 6 )]
 editor/display_folded = true
 position = Vector2( 215.762, 301.382 )
 
@@ -40,24 +49,18 @@ position = Vector2( -5000.16, -435.407 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
-[node name="EnemyB" parent="." instance=ExtResource( 6 )]
+[node name="EnemyB" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1920.11, 334.799 )
 scale = Vector2( 1, 1 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = -100
 
-[node name="Sprite" type="Sprite" parent="CanvasLayer"]
+[node name="Sprite" type="Sprite" parent="CanvasLayer2"]
 position = Vector2( 1053.83, 330.397 )
 scale = Vector2( 1.05413, 1.27631 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 2000, 520 )
-
-[node name="GUI" parent="CanvasLayer" instance=ExtResource( 8 )]
-margin_left = 75.5978
-margin_top = 89.6626
-margin_right = 75.5979
-margin_bottom = 182.663
 
 [editable path="Player"]

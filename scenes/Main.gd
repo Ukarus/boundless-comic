@@ -4,9 +4,9 @@ extends Node2D
 func _ready():
 	var player_life = $Player.life
 	
-	$CanvasLayer/GUI.set_max_life(player_life)
-	$CanvasLayer/GUI.update_life(player_life)
-	$Player.connect("update_life", $CanvasLayer/GUI, "update_life")
+	$HUD/GUI.set_max_life(player_life)
+	$HUD/GUI.update_life(player_life)
+	$Player.connect("update_life", $HUD/GUI, "update_life")
 	$Vineta1.connect("reset_to_checkpoint", self, "reset_to_checkpoint")
 	#$Bomb.connect("can_be_grabbed", $Player, "can_grab_item")
 	#$Bomb.connect("can_not_be_grabbed", $Player, "can_not_grab_item")

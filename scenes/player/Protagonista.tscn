@@ -586,7 +586,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 57.8537, 126.799 )
+extents = Vector2( 50.4835, 115.319 )
 
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 13.952, 36.1871 )
@@ -595,12 +595,13 @@ extents = Vector2( 13.952, 36.1871 )
 "player",
 ]]
 script = ExtResource( 1 )
+run_speed = 600
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 4
-frame = 13
+frame = 11
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/attack1 = SubResource( 1 )
@@ -613,7 +614,7 @@ anims/jumping = SubResource( 7 )
 anims/running = SubResource( 8 )
 
 [node name="PlayerHitbox" type="CollisionShape2D" parent="."]
-position = Vector2( 2.93967, -12.5322 )
+position = Vector2( -10.0924, 10.2194 )
 rotation = 0.872665
 shape = SubResource( 9 )
 
