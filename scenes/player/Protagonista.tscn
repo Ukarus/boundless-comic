@@ -371,6 +371,7 @@ tracks/8/keys = {
 
 [sub_resource type="Animation" id=5]
 length = 0.1
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1

@@ -5,12 +5,9 @@ export var speed: = Vector2(300.0, 1000.0)
 const FLOOR_DETECT_DISTANCE = 40.0
 const FLOOR_NORMAL = Vector2.UP
 var _velocity: = Vector2.ZERO
-var jumping = false
 var attacks = ["attack1", "attack2", "attack3"]
 var next_attack = 0
-var checkpoint = null
 onready var sprite = $Sprite
-onready var hitbox_degrees = $PlayerHitbox.rotation_degrees
 onready var animation_player = $AnimationPlayer
 signal update_life
 
@@ -21,54 +18,6 @@ func _ready():
 func take_damage(dmg):
 	self.life -= dmg
 	emit_signal("update_life", self.life)
-
-"""
-func get_input():
-	velocity.x = 0
-	var jump = Input.is_action_just_pressed("ui_up")
-	
-	if jump and is_on_floor():
-		jumping = true
-		velocity.y = jump_speed
-		$AnimationPlayer.stop()
-		$AnimationPlayer.play("jumping")
-	if Input.is_action_pressed("ui_right"):
-		velocity.x += run_speed
-		$Sprite.scale.x = 1
-		if $PlayerHitbox.rotation_degrees < 0:
-			$PlayerHitbox.rotation_degrees *= -1
-		$AttackHitbox.scale.x = 1
-		if Input.is_action_pressed("ui_up") || jumping:
-			$AnimationPlayer.play("jumping")
-		if is_on_floor():
-			$AnimationPlayer.play("running")
-	if Input.is_action_pressed("ui_left"):
-		velocity.x -= run_speed
-		$Sprite.scale.x = -1
-		$AttackHitbox.scale.x = -1
-		if Input.is_action_pressed("ui_up") || jumping:
-			$AnimationPlayer.play("jumping")
-		if is_on_floor():
-			$AnimationPlayer.play("running")
-	if Input.is_action_pressed("ui_down"):
-		if is_on_floor():
-			$AnimationPlayer.play("crouch")
-	if Input.is_action_just_pressed("atacar"):
-		$AnimationPlayer.play(attacks[next_attack])
-		if (next_attack < attacks.size() - 1 ):
-			next_attack += 1
-		else:
-			next_attack = 0
-	if Input.is_action_just_released("ui_right") or Input.is_action_just_released("ui_left") or Input.is_action_just_released("ui_down"):
-		$AnimationPlayer.play("idle")
-		
-func _physics_process(delta):
-	get_input()
-	velocity.y += gravity * delta
-	if jumping and is_on_floor():
-		jumping = false
-	velocity = move_and_slide(velocity, Vector2(0, -1))
-"""
 
 func _physics_process(delta :float) -> void:
 	var is_jump_interrupted: = Input.is_action_just_released("ui_up") and _velocity.y < 0.0
@@ -82,8 +31,9 @@ func _physics_process(delta :float) -> void:
 	self.flip_sprite(direction)
 	
 	var is_attacking = Input.is_action_just_pressed("attack")
+	var is_crouching = Input.is_action_pressed("ui_down")
 
-	var animation = self.get_new_animation(is_attacking)
+	var animation = self.get_new_animation(is_attacking, is_crouching)
 	if animation != animation_player.current_animation:
 		animation_player.play(animation)
 	
@@ -110,12 +60,19 @@ func calculate_move_velocity(
 		out.y = speed.y * direction.y
 	if is_jump_interrupted:
 		out.y = 0.0
+	print(out)
 	return out
 
-func get_new_animation(is_attacking = false) -> String:
+func get_new_animation(is_attacking = false, is_crouching = false) -> String:
 	var animation_new = ""
 	if is_on_floor():
-		animation_new = "running" if _velocity.x != 0 else "idle"
+		if _velocity.x != 0:
+			animation_new = "running"
+		elif is_crouching:
+			animation_new = "crouch"
+		else:
+			animation_new = "idle"
+		#animation_new = "running" if _velocity.x != 0 else "idle"
 	else:
 		if _velocity.y < 0:
 			animation_new = "jumping"
