@@ -17,10 +17,6 @@ func _ready():
 	position = wayponts.get_start_position()
 	target_position = wayponts.get_next_point_position()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 func _physics_process(delta):
 	var direction: = (target_position - position).normalized()
 	var motion = direction * speed * delta
