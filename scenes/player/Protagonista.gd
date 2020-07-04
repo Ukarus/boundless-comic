@@ -11,10 +11,6 @@ onready var sprite = $Sprite
 onready var animation_player = $AnimationPlayer
 signal update_life
 
-func _ready():
-	$AnimationPlayer.play("idle")
-	add_to_group("Player")
-
 func take_damage(dmg):
 	self.life -= dmg
 	emit_signal("update_life", self.life)
@@ -60,7 +56,6 @@ func calculate_move_velocity(
 		out.y = speed.y * direction.y
 	if is_jump_interrupted:
 		out.y = 0.0
-	print(out)
 	return out
 
 func get_new_animation(is_attacking = false, is_crouching = false) -> String:
@@ -72,7 +67,6 @@ func get_new_animation(is_attacking = false, is_crouching = false) -> String:
 			animation_new = "crouch"
 		else:
 			animation_new = "idle"
-		#animation_new = "running" if _velocity.x != 0 else "idle"
 	else:
 		if _velocity.y < 0:
 			animation_new = "jumping"

@@ -40,9 +40,7 @@ func take_damage(dmg):
 	# Empujar personaje
 	$BarraVida.value = vida
 	if vida <= 0:
-		$AnimationPlayer.play("Muerte")
-		$BarraVida.hide()
-		queue_free()
+		$AnimationPlayer.play("Death")
 		#$AreaAtaque.hide()
 		#var player = get_tree().get_nodes_in_group("Player")[0]
 		#if player:
