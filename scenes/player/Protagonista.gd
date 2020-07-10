@@ -8,6 +8,7 @@ var _velocity: = Vector2.ZERO
 var attacks = ["attack1", "attack2", "attack3"]
 var next_attack = 0
 onready var sprite = $Sprite
+onready var attack_hitbox = $AttackHitbox
 onready var animation_player = $AnimationPlayer
 signal update_life
 
@@ -42,6 +43,7 @@ func get_direction() -> Vector2:
 func flip_sprite(direction: Vector2) -> void:
 	if direction.x != 0:
 		sprite.scale.x = direction.x
+		attack_hitbox.scale.x = direction.x
 
 func calculate_move_velocity(
 		linear_velocity: Vector2, 
