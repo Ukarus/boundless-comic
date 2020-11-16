@@ -35,12 +35,10 @@ margin_right = 500.0
 margin_bottom = 53.0
 
 [node name="Count" type="MarginContainer" parent="HBoxContainer/Bars/LifeBar"]
-editor/display_folded = true
 margin_right = 100.0
 margin_bottom = 53.0
 
 [node name="Background" type="NinePatchRect" parent="HBoxContainer/Bars/LifeBar/Count"]
-editor/display_folded = true
 margin_right = 100.0
 margin_bottom = 53.0
 rect_min_size = Vector2( 100, 40 )

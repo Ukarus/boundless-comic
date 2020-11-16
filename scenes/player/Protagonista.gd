@@ -6,10 +6,11 @@ const FLOOR_DETECT_DISTANCE = 40.0
 const FLOOR_NORMAL = Vector2.UP
 var _velocity: = Vector2.ZERO
 var attacks = ["attack1", "attack2", "attack3"]
-var next_attack = 0
+var currentAttackIndex = 0
 onready var sprite = $Sprite
 onready var attack_hitbox = $AttackHitbox
 onready var animation_player = $AnimationPlayer
+onready var tween = $Tween
 signal update_life
 
 func take_damage(dmg):
@@ -18,9 +19,13 @@ func take_damage(dmg):
 
 func _physics_process(delta :float) -> void:
 	var is_jump_interrupted: = Input.is_action_just_released("ui_up") and _velocity.y < 0.0
+	
 	var direction: = self.get_direction()
+	
 	_velocity = calculate_move_velocity(_velocity, direction, speed, is_jump_interrupted)
+	
 	var snap_vector = Vector2.DOWN * FLOOR_DETECT_DISTANCE if direction.y == 0.0 else Vector2.ZERO
+	
 	_velocity = move_and_slide_with_snap(
 		_velocity, snap_vector, FLOOR_NORMAL, true, 4,  0.9, false
 	)
@@ -73,7 +78,10 @@ func get_new_animation(is_attacking = false, is_crouching = false) -> String:
 		if _velocity.y < 0:
 			animation_new = "jumping"
 	if is_attacking:
-		animation_new = "attack1"
+		animation_new = attacks[currentAttackIndex]
+		currentAttackIndex += 1
+		if currentAttackIndex > attacks.size() - 1:
+			currentAttackIndex = 0
 	return animation_new
 
 func _on_AttackHitbox_body_entered(body):
@@ -82,3 +90,12 @@ func _on_AttackHitbox_body_entered(body):
 	if body.is_in_group("Enemigo"):
 		body.take_damage(30)
 		
+
+
+func tween_camera_right(limit):
+	tween.stop_all()
+	
+	tween.interpolate_property($Camera2D, "limit_right",
+		null, limit, 3,
+		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	tween.start()

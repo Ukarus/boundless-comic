@@ -389,6 +389,7 @@ scale = Vector2( 0.36, 0.7 )
 [node name="DestructibleBorder3" parent="." instance=ExtResource( 10 )]
 position = Vector2( 5213.16, 605.441 )
 scale = Vector2( 0.36, 0.94 )
+cameraRLimit = 8960
 
 [node name="DestructibleBorder2" parent="." instance=ExtResource( 10 )]
 position = Vector2( 921.286, 1636.63 )
@@ -402,7 +403,13 @@ frame = 3
 position = Vector2( 4357.45, 499.114 )
 
 [node name="Fija" parent="." instance=ExtResource( 12 )]
-position = Vector2( 4063.3, 514.348 )
+position = Vector2( 3928, 520 )
+
+[node name="Fija2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 4128, 520 )
+
+[node name="Fija3" parent="." instance=ExtResource( 12 )]
+position = Vector2( 4600, 568 )
 
 [node name="Waypoints" parent="." instance=ExtResource( 13 )]
 position = Vector2( 3026.38, 727.323 )

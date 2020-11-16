@@ -579,7 +579,7 @@ tracks/3/path = NodePath("PlayerHitbox:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/keys = {
 "times": PoolRealArray( 0.6 ),
 "transitions": PoolRealArray( 1 ),
@@ -588,7 +588,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 68.401, 119.213 )
+extents = Vector2( 78.181, 121.605 )
 
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 13.952, 36.1871 )
@@ -604,6 +604,7 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 4
+frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/attack1 = SubResource( 1 )
@@ -616,8 +617,8 @@ anims/jumping = SubResource( 7 )
 anims/running = SubResource( 8 )
 
 [node name="PlayerHitbox" type="CollisionShape2D" parent="."]
-position = Vector2( 36.2644, 12.402 )
-rotation = -0.000827134
+position = Vector2( -2.64361, 7.95361 )
+rotation = -0.00406658
 shape = SubResource( 9 )
 
 [node name="AttackHitbox" type="Area2D" parent="." groups=[
@@ -628,6 +629,7 @@ shape = SubResource( 9 )
 position = Vector2( 90.8847, -56.7376 )
 rotation = -3.14564
 shape = SubResource( 10 )
+disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -643,4 +645,6 @@ stream = ExtResource( 4 )
 
 [node name="PunchSound3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
+
+[node name="Tween" type="Tween" parent="."]
 [connection signal="body_entered" from="AttackHitbox" to="." method="_on_AttackHitbox_body_entered"]

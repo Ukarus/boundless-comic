@@ -8,6 +8,9 @@ func _ready():
 	$HUD/GUI.update_life(player_life)
 	$Player.connect("update_life", $HUD/GUI, "update_life")
 	$Vineta1.connect("reset_to_checkpoint", self, "reset_to_checkpoint")
+	$Vineta1/DestructibleBorder.connect("tween_camera_right", $Player, "tween_camera_right")
+	$Vineta1/DestructibleBorder2.connect("tween_camera_right", $Player, "tween_camera_right")
+	$Vineta1/DestructibleBorder3.connect("tween_camera_right", $Player, "tween_camera_right")
 	#$Bomb.connect("can_be_grabbed", $Player, "can_grab_item")
 	#$Bomb.connect("can_not_be_grabbed", $Player, "can_not_grab_item")
 	

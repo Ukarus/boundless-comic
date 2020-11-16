@@ -5,7 +5,6 @@ extends MarginContainer
 # var b = "text"
 
 func update_life(life):
-	print(life)
 	$HBoxContainer/Bars/LifeBar/Gauge.value = life
 	$HBoxContainer/Bars/LifeBar/Count/Background/Number.text = life as String
 

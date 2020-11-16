@@ -29,10 +29,10 @@ margin_bottom = 182.663
 position = Vector2( 0, -3.4248 )
 
 [node name="Turret" parent="." instance=ExtResource( 4 )]
-position = Vector2( 4195.59, 1153.52 )
+position = Vector2( 6559.2, 649.552 )
 
 [node name="Boss" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2697.05, 697.943 )
+position = Vector2( 8437.09, 1155.11 )
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 215.762, 301.382 )
@@ -40,6 +40,8 @@ position = Vector2( 215.762, 301.382 )
 [node name="Camera2D" parent="Player" index="4"]
 limit_left = -67
 limit_top = -254
+limit_right = 2176
+limit_bottom = 1665
 
 [node name="PunchSound3" parent="Player" index="7"]
 position = Vector2( -5000.16, -435.407 )
@@ -56,8 +58,8 @@ scale = Vector2( 1, 1 )
 layer = -100
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer2"]
-position = Vector2( 1053.83, 330.397 )
-scale = Vector2( 1.05413, 1.27631 )
+position = Vector2( 1053.83, 551.278 )
+scale = Vector2( 1.05413, 2.12585 )
 texture = ExtResource( 8 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 2000, 520 )

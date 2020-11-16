@@ -25,7 +25,7 @@ func _physics_process(delta):
 func aim():
 	hit_pos = []
 	var space_state = get_world_2d().direct_space_state
-	var target_extents = target.get_node('CollisionShape2D').shape.extents - Vector2(5, 5)
+	var target_extents = target.get_node('PlayerHitbox').shape.extents - Vector2(5, 5)
 	var nw = target.position - target_extents
 	var se = target.position + target_extents
 	var ne = target.position + Vector2(target_extents.x, -target_extents.y)
