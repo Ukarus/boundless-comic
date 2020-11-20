@@ -1,21 +1,47 @@
 extends KinematicBody2D
+
 export (int) var gravity = 1200
 export (int) var life = 300
 export var speed: = Vector2(300.0, 1000.0)
+const MAX_LIFE = 300
 const FLOOR_DETECT_DISTANCE = 40.0
 const FLOOR_NORMAL = Vector2.UP
 var _velocity: = Vector2.ZERO
 var attacks = ["attack1", "attack2", "attack3"]
 var currentAttackIndex = 0
+var functionParams = null
+var item_grab = false
 onready var sprite = $Sprite
 onready var attack_hitbox = $AttackHitbox
 onready var animation_player = $AnimationPlayer
 onready var tween = $Tween
+
+# signals
 signal update_life
+signal destroyItem
 
 func take_damage(dmg):
-	self.life -= dmg
+	self.life = max(self.life - dmg, 0)
 	emit_signal("update_life", self.life)
+	
+func recoverHealth(params):
+	self.life = min(self.life + params.health, MAX_LIFE)
+	emit_signal("update_life", self.life)
+	emit_signal("destroyItem", self.functionParams.itemName)
+	
+func can_grab_item(params):
+	self.functionParams = params
+	self.item_grab = true
+	
+func can_not_grab_item():
+	self.functionParams = null
+	self.item_grab = false
+
+	
+func _input(event):
+	if event.is_action_pressed("grab_item"):
+		if self.item_grab and self.functionParams != null:
+			call(self.functionParams.itemFunction, self.functionParams.functionParams)
 
 func _physics_process(delta :float) -> void:
 	var is_jump_interrupted: = Input.is_action_just_released("ui_up") and _velocity.y < 0.0

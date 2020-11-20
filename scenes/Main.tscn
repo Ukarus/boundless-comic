@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/player/Protagonista.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/enemyB/ShooterPunk.tscn" type="PackedScene" id=7]
 [ext_resource path="res://art/background/exterior 2.png" type="Texture" id=8]
+[ext_resource path="res://scenes/Bomb.tscn" type="PackedScene" id=9]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
@@ -63,5 +64,8 @@ scale = Vector2( 1.05413, 2.12585 )
 texture = ExtResource( 8 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 2000, 520 )
+
+[node name="Bomb" parent="." instance=ExtResource( 9 )]
+position = Vector2( 696, 320 )
 
 [editable path="Player"]

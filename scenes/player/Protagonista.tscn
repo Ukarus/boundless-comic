@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/player/Protagonista.gd" type="Script" id=1]
 [ext_resource path="res://art/jugador/personaje1.png" type="Texture" id=2]
@@ -259,117 +259,6 @@ tracks/6/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-length = 0.7
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 11, 12, 1, 2, 3, 11 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AttackHitbox/AttackHitboxShaped:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.5, 0.6, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ true, false, false, false, true, true ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("AttackHitbox/AttackHitboxShaped:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 849.886, -677.184 ), Vector2( 688.025, -644.308 ), Vector2( 690.727, -647.492 ), Vector2( 763.92, -549.975 ), Vector2( 618.273, -468.229 ), Vector2( 926.23, -556.795 ), Vector2( 626.725, -641.948 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("AttackHitbox/AttackHitboxShaped:rotation_degrees")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ -11.7864, -9.84045, -1.17301, -89.2402 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("PlayerHitbox:shape:extents")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 428.837, 925.107 ), Vector2( 428.837, 925.107 ), Vector2( 395.876, 925.107 ), Vector2( 395.876, 925.107 ), Vector2( 395.876, 925.107 ), Vector2( 395.876, 925.107 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("PlayerHitbox:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( -78.8094, 79.5702 ), Vector2( -78.8094, 79.5702 ), Vector2( -78.8094, 79.5702 ), Vector2( -78.8094, 79.5702 ), Vector2( 79.9744, 90.1559 ), Vector2( -36.467, 90.1559 ) ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("PunchSound1:playing")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("PunchSound2:playing")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("PunchSound3:playing")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-
-[sub_resource type="Animation" id=5]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -421,7 +310,7 @@ tracks/3/keys = {
 "values": [ 0.62036 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -484,7 +373,7 @@ tracks/4/keys = {
 "values": [ -0.0473913 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 length = 1.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -535,7 +424,7 @@ tracks/3/keys = {
 "values": [ Vector2( 56.8221, 127.876 ), Vector2( 59.9169, 124.645 ), Vector2( 50.4835, 115.319 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 length = 0.9
 loop = true
 tracks/0/type = "value"
@@ -587,10 +476,10 @@ tracks/3/keys = {
 "values": [ -0.232998 ]
 }
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 78.181, 121.605 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 13.952, 36.1871 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" groups=[
@@ -604,31 +493,30 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 4
-frame = 5
+frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/attack1 = SubResource( 1 )
 anims/attack2 = SubResource( 2 )
 anims/attack3 = SubResource( 3 )
-anims/basic_punch = SubResource( 4 )
-anims/crouch = SubResource( 5 )
-anims/idle = SubResource( 6 )
-anims/jumping = SubResource( 7 )
-anims/running = SubResource( 8 )
+anims/crouch = SubResource( 4 )
+anims/idle = SubResource( 5 )
+anims/jumping = SubResource( 6 )
+anims/running = SubResource( 7 )
 
 [node name="PlayerHitbox" type="CollisionShape2D" parent="."]
 position = Vector2( -2.64361, 7.95361 )
-rotation = -0.00406658
-shape = SubResource( 9 )
+rotation = -0.000827134
+shape = SubResource( 8 )
 
 [node name="AttackHitbox" type="Area2D" parent="." groups=[
 "player",
 ]]
 
 [node name="AttackHitboxShaped" type="CollisionShape2D" parent="AttackHitbox"]
-position = Vector2( 90.8847, -56.7376 )
-rotation = -3.14564
-shape = SubResource( 10 )
+position = Vector2( 84.507, -74.3816 )
+rotation = -1.81926
+shape = SubResource( 9 )
 disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
