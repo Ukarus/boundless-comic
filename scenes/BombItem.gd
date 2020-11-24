@@ -9,7 +9,7 @@ signal can_not_be_grabbed
 func _on_Area2D_body_entered(body):
 	self.player_on_range = true
 	emit_signal("can_be_grabbed", {
-		"itemName": "Bomb",
+		"itemName": "Apple",
 		"itemFunction": "recoverHealth",
 		"functionParams": {
 			"health": 30

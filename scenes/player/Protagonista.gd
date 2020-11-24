@@ -6,11 +6,20 @@ export var speed: = Vector2(300.0, 1000.0)
 const MAX_LIFE = 300
 const FLOOR_DETECT_DISTANCE = 40.0
 const FLOOR_NORMAL = Vector2.UP
+const DASH: = 30
+const DASH_DISTANCE: = 100.0
+
 var _velocity: = Vector2.ZERO
 var attacks = ["attack1", "attack2", "attack3"]
 var currentAttackIndex = 0
 var functionParams = null
 var item_grab = false
+var dashing = false
+var canDash = true
+var isBlocking = false
+
+# Node variables
+onready var dashTimer = $DashTimer
 onready var sprite = $Sprite
 onready var attack_hitbox = $AttackHitbox
 onready var animation_player = $AnimationPlayer
@@ -21,8 +30,9 @@ signal update_life
 signal destroyItem
 
 func take_damage(dmg):
-	self.life = max(self.life - dmg, 0)
-	emit_signal("update_life", self.life)
+	if not isBlocking:
+		self.life = max(self.life - dmg, 0)
+		emit_signal("update_life", self.life)
 	
 func recoverHealth(params):
 	self.life = min(self.life + params.health, MAX_LIFE)
@@ -51,6 +61,19 @@ func _physics_process(delta :float) -> void:
 	_velocity = calculate_move_velocity(_velocity, direction, speed, is_jump_interrupted)
 	
 	var snap_vector = Vector2.DOWN * FLOOR_DETECT_DISTANCE if direction.y == 0.0 else Vector2.ZERO
+	
+	if Input.is_action_just_pressed("ui_dash"):
+		if canDash:
+			_velocity.x = DASH * _velocity.x
+			dashTimer.start()
+			canDash = false
+			dashing = true
+			
+	if Input.is_action_pressed("ui_block"):
+		isBlocking = true
+		
+	if Input.is_action_just_released("ui_block"):
+		isBlocking = false
 	
 	_velocity = move_and_slide_with_snap(
 		_velocity, snap_vector, FLOOR_NORMAL, true, 4,  0.9, false
@@ -98,6 +121,8 @@ func get_new_animation(is_attacking = false, is_crouching = false) -> String:
 			animation_new = "running"
 		elif is_crouching:
 			animation_new = "crouch"
+		elif _velocity.x == 0 and isBlocking:
+			animation_new = "blocking"
 		else:
 			animation_new = "idle"
 	else:
@@ -125,3 +150,8 @@ func tween_camera_right(limit):
 		null, limit, 3,
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
+
+
+func _on_DashTimer_timeout():
+	canDash = true
+	dashing = false

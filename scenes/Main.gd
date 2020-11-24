@@ -11,8 +11,8 @@ func _ready():
 	$Vineta1/DestructibleBorder.connect("tween_camera_right", $Player, "tween_camera_right")
 	$Vineta1/DestructibleBorder2.connect("tween_camera_right", $Player, "tween_camera_right")
 	$Vineta1/DestructibleBorder3.connect("tween_camera_right", $Player, "tween_camera_right")
-	$Bomb.connect("can_be_grabbed", $Player, "can_grab_item")
-	$Bomb.connect("can_not_be_grabbed", $Player, "can_not_grab_item")
+	$Apple.connect("can_be_grabbed", $Player, "can_grab_item")
+	$Apple.connect("can_not_be_grabbed", $Player, "can_not_grab_item")
 	$Player.connect("destroyItem", self, "destroyItem")
 	
 

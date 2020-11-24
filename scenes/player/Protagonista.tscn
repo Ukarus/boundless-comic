@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/player/Protagonista.gd" type="Script" id=1]
 [ext_resource path="res://art/jugador/personaje1.png" type="Texture" id=2]
@@ -8,7 +8,6 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "attack1"
-length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -16,7 +15,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 1, 11 ]
@@ -52,7 +51,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.1 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -62,9 +61,9 @@ tracks/4/path = NodePath("PlayerHitbox:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
-tracks/4/enabled = true
+tracks/4/enabled = false
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.1 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( -7.29417, 1.9145 ), Vector2( -8.0782, 10.9666 ) ]
@@ -74,9 +73,9 @@ tracks/5/path = NodePath("PlayerHitbox:shape:extents")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
-tracks/5/enabled = true
+tracks/5/enabled = false
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.1 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 62.7306, 124.655 ), Vector2( 51.7296, 115.811 ) ]
@@ -259,6 +258,22 @@ tracks/6/keys = {
 }
 
 [sub_resource type="Animation" id=4]
+resource_name = "blocking"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
+[sub_resource type="Animation" id=5]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -310,7 +325,7 @@ tracks/3/keys = {
 "values": [ 0.62036 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -373,7 +388,7 @@ tracks/4/keys = {
 "values": [ -0.0473913 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 1.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -382,7 +397,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1.2, 1.3 ),
+"times": PoolRealArray( 0, 1, 1.3 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 13, 14, 11 ]
@@ -394,7 +409,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1.2, 1.3 ),
+"times": PoolRealArray( 0, 1, 1.3 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( -10.7023, -22.622 ), Vector2( 30.2236, 7.64728 ), Vector2( -10.0924, 10.2194 ) ]
@@ -406,10 +421,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = false
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 49.4292, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 0.62036, -0.232998 ]
+"values": [ 49.4292, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 0.62036, -0.232998 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("PlayerHitbox:shape:extents")
@@ -418,13 +433,13 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 1.2, 1.3 ),
+"times": PoolRealArray( 0, 1, 1.3 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 56.8221, 127.876 ), Vector2( 59.9169, 124.645 ), Vector2( 50.4835, 115.319 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 0.9
 loop = true
 tracks/0/type = "value"
@@ -476,10 +491,10 @@ tracks/3/keys = {
 "values": [ -0.232998 ]
 }
 
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 78.181, 121.605 )
-
 [sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 55.5373, 117.189 )
+
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 13.952, 36.1871 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" groups=[
@@ -493,21 +508,22 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 4
-frame = 6
+frame = 11
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/attack1 = SubResource( 1 )
 anims/attack2 = SubResource( 2 )
 anims/attack3 = SubResource( 3 )
-anims/crouch = SubResource( 4 )
-anims/idle = SubResource( 5 )
-anims/jumping = SubResource( 6 )
-anims/running = SubResource( 7 )
+anims/blocking = SubResource( 4 )
+anims/crouch = SubResource( 5 )
+anims/idle = SubResource( 6 )
+anims/jumping = SubResource( 7 )
+anims/running = SubResource( 8 )
 
 [node name="PlayerHitbox" type="CollisionShape2D" parent="."]
-position = Vector2( -2.64361, 7.95361 )
+position = Vector2( -10.7152, 7.80124 )
 rotation = -0.000827134
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
 [node name="AttackHitbox" type="Area2D" parent="." groups=[
 "player",
@@ -516,7 +532,7 @@ shape = SubResource( 8 )
 [node name="AttackHitboxShaped" type="CollisionShape2D" parent="AttackHitbox"]
 position = Vector2( 84.507, -74.3816 )
 rotation = -1.81926
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -535,4 +551,8 @@ stream = ExtResource( 4 )
 stream = ExtResource( 5 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="DashTimer" type="Timer" parent="."]
+one_shot = true
 [connection signal="body_entered" from="AttackHitbox" to="." method="_on_AttackHitbox_body_entered"]
+[connection signal="timeout" from="DashTimer" to="." method="_on_DashTimer_timeout"]
