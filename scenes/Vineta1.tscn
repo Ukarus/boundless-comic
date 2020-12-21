@@ -403,16 +403,19 @@ tile_data = PoolIntArray( -262109, 1, 0, -262103, 1, 0, -262097, 1, 0, -262091, 
 [node name="DestructibleBorder" parent="." instance=ExtResource( 10 )]
 position = Vector2( 2144, 376 )
 scale = Vector2( 0.36, 0.7 )
+collision_layer = 4
 
 [node name="DestructibleBorder3" parent="." instance=ExtResource( 10 )]
 position = Vector2( 5213.16, 605.441 )
 scale = Vector2( 0.36, 0.94 )
+collision_layer = 4
 cameraRLimit = 8960
 
 [node name="DestructibleBorder2" parent="." instance=ExtResource( 10 )]
 position = Vector2( 921.286, 1636.63 )
 rotation = -1.5708
 scale = Vector2( 0.36, 0.7 )
+collision_layer = 4
 
 [node name="Sprite" parent="DestructibleBorder2" index="0"]
 position = Vector2( 0, 11.8922 )
@@ -501,6 +504,7 @@ shape = SubResource( 17 )
 
 [node name="BottomWhite1" type="StaticBody2D" parent="."]
 position = Vector2( 128, 1616 )
+collision_layer = 4
 
 [node name="ColorRect" type="ColorRect" parent="BottomWhite1"]
 margin_left = -128.0
@@ -517,6 +521,7 @@ shape = SubResource( 18 )
 
 [node name="BottomWhite2" type="StaticBody2D" parent="."]
 position = Vector2( 1624, 1624 )
+collision_layer = 4
 
 [node name="ColorRect" type="ColorRect" parent="BottomWhite2"]
 margin_left = -536.0
@@ -533,6 +538,7 @@ shape = SubResource( 19 )
 
 [node name="RightWhite" type="StaticBody2D" parent="."]
 position = Vector2( 2176, -16 )
+collision_layer = 4
 
 [node name="ColorRect" type="ColorRect" parent="RightWhite"]
 margin_left = -64.0
@@ -548,6 +554,7 @@ shape = SubResource( 20 )
 
 [node name="RightWhite2" type="StaticBody2D" parent="."]
 position = Vector2( 2144, 760 )
+collision_layer = 4
 
 [node name="ColorRect" type="ColorRect" parent="RightWhite2"]
 margin_left = -32.0

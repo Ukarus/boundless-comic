@@ -94,6 +94,7 @@ func _pensar():
 				animation_player.play("Run")
 		else:
 			if(dist_abs <= RANGO_ATAQUE):
+				print("on attack range")
 				estado = estados.ATAQUE
 				ataque_activo = true
 				animation_player.play("Attack")
@@ -119,8 +120,6 @@ func _physics_process(delta):
 		return
 
 	_pensar()
-	
-	print(estado)
 	
 	if estado == estados.IDLE:
 		pass

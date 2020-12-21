@@ -28,6 +28,7 @@ hue_variation = -0.02
 hue_variation_random = 0.25
 
 [node name="LaserBullet" type="KinematicBody2D"]
+collision_layer = 2
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
