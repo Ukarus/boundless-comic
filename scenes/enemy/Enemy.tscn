@@ -263,13 +263,11 @@ anims/running = SubResource( 4 )
 [node name="DetectRadius" type="Area2D" parent="." groups=[
 "enemies",
 ]]
-editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectRadius"]
 shape = SubResource( 5 )
 
 [node name="AttackRadius" type="Area2D" parent="."]
-editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRadius"]
 position = Vector2( 3.41983, -2.61332 )

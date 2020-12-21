@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/enemyB/ShooterPunk.gd" type="Script" id=1]
 [ext_resource path="res://art/enemigos y personaje/pistola.png" type="Texture" id=2]
@@ -84,6 +84,9 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4 ]
 }
 
+[sub_resource type="CircleShape2D" id=6]
+radius = 414.126
+
 [node name="ShooterPunk" type="KinematicBody2D" groups=[
 "Enemigo",
 ]]
@@ -139,4 +142,14 @@ scale = Vector2( 1, 2 )
 enabled = true
 cast_to = Vector2( 0, 150 )
 collision_mask = 24
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 6 )
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 1.5
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

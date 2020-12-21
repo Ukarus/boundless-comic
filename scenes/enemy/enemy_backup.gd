@@ -27,13 +27,11 @@ export var VEL_MOV = 150.0
 
 var _velocity = Vector2.ZERO
 const FLOOR_NORMAL = Vector2.UP
+onready var bullet = preload("res://scenes/enemyB/LaserBullet.tscn")
 onready var health_bar = $BarraVida
 onready var animation_player = $AnimationPlayer
 onready var floor_detector_left = $FloorDetectorLeft
 onready var floor_detector_right = $FloorDetectorRight
-
-#CUSTOM SIGNALS
-signal spawnBullet
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -55,64 +53,67 @@ func take_damage(dmg):
 func _pensar():
 	if not ataque_activo or ataque_retraso:
 		return
-	if enemy:
-		# Si jugador se encuentra en rango
-		var dist = enemy.global_position.x - global_position.x
-		var dist_abs = global_position.distance_to(enemy.global_position)
-		var nuevo_mirar_izq = false
-		#mirar hacia personaje
-		# si el enemigo esta a la izquierda
-		if dist < 0:
-			nuevo_mirar_izq = true
-		# si el enemigo esta a la derecha
-		else:
-			nuevo_mirar_izq = false
-
-		if nuevo_mirar_izq != mirar_izq:
-			if nuevo_mirar_izq:
-				$Sprite.scale = Vector2(1,1)
-			else:
-				$Sprite.scale = Vector2(-1,1)
-		mirar_izq = nuevo_mirar_izq
-		
-		var isEdgeOnLeft = !floor_detector_left.is_colliding()
-		var isEdgeOnRight = !floor_detector_right.is_colliding()
-		
-		if (self.is_on_edge()):
-			if(dist_abs <= RANGO_ATAQUE):
-				estado = estados.ATAQUE
-				ataque_activo = true
-				animation_player.play("Attack")
-			elif (dist < 0 && isEdgeOnLeft):
-				estado = estados.IDLE
-				animation_player.play("Idle")
-			elif(dist > 0 && isEdgeOnRight):
-				estado = estados.IDLE
-				animation_player.play("Idle")
-			else:
-				estado = estados.CAMINAR
-				animation_player.play("Run")
-		else:
-			if(dist_abs <= RANGO_ATAQUE):
-				estado = estados.ATAQUE
-				ataque_activo = true
-				animation_player.play("Attack")
-			elif(dist_abs <= RANGO_MOV):
-				estado = estados.CAMINAR
-				animation_player.play("Run")
-			else:
-				estado = estados.IDLE
-				animation_player.play("Idle")
-
-func shoot():
-	var bulletVector = $ShootPointL.get_global_position() if mirar_izq else $ShootPointR.get_global_position()
+	var enemigo = get_tree().get_nodes_in_group("Player")[0]
+	if not enemigo:
+		pass
 	
-	emit_signal("spawnBullet", {
-		"direction": "left" if mirar_izq else "right",
-		"bulletPosition": bulletVector,
-		"bulletDirection": Vector2(-1, 0) if mirar_izq else Vector2(1,0)
-	})		
+	# Si jugador se encuentra en rango
+	var dist = enemigo.global_position.x - global_position.x
+	var dist_abs = global_position.distance_to(enemigo.global_position)
+	var nuevo_mirar_izq = false
+	#mirar hacia personaje
+	# si el enemigo esta a la izquierda
+	if dist < 0:
+		nuevo_mirar_izq = true
+	# si el enemigo esta a la derecha
+	else:
+		nuevo_mirar_izq = false
 
+	if nuevo_mirar_izq != mirar_izq:
+		if nuevo_mirar_izq:
+			$Sprite.scale = Vector2(1,1)
+		else:
+			$Sprite.scale = Vector2(-1,1)
+	mirar_izq = nuevo_mirar_izq
+	
+	var isEdgeOnLeft = !floor_detector_left.is_colliding()
+	var isEdgeOnRight = !floor_detector_right.is_colliding()
+	
+	if (self.is_on_edge()):
+		if(dist_abs <= RANGO_ATAQUE):
+			estado = estados.ATAQUE
+			ataque_activo = true
+			animation_player.play("Attack")
+		elif (dist < 0 && isEdgeOnLeft):
+			estado = estados.IDLE
+			animation_player.play("Idle")
+		elif(dist > 0 && isEdgeOnRight):
+			estado = estados.IDLE
+			animation_player.play("Idle")
+		else:
+			estado = estados.CAMINAR
+			animation_player.play("Run")
+	else:
+		if(dist_abs <= RANGO_ATAQUE):
+			estado = estados.ATAQUE
+			ataque_activo = true
+			animation_player.play("Attack")
+		elif(dist_abs <= RANGO_MOV):
+			estado = estados.CAMINAR
+			animation_player.play("Run")
+		else:
+			estado = estados.IDLE
+			animation_player.play("Idle")
+		
+func shoot():
+	var B = bullet.instance()
+	get_tree().get_root().add_child(B)
+	if mirar_izq:
+		B.set_global_position($ShootPointL.get_global_position())
+		B.dir = Vector2(-1,0)
+	else:
+		B.set_global_position($ShootPointR.get_global_position())
+		B.dir = Vector2(1,0)
 
 func _physics_process(delta):
 	if muerto:
@@ -120,7 +121,6 @@ func _physics_process(delta):
 
 	_pensar()
 	
-	print(estado)
 	
 	if estado == estados.IDLE:
 		pass
