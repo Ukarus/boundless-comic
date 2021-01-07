@@ -77,6 +77,7 @@ func _pensar():
 		
 		var isEdgeOnLeft = !floor_detector_left.is_colliding()
 		var isEdgeOnRight = !floor_detector_right.is_colliding()
+		print(isEdgeOnLeft, isEdgeOnRight)
 		
 		if (self.is_on_edge()):
 			if(dist_abs <= RANGO_ATAQUE):
@@ -94,7 +95,6 @@ func _pensar():
 				animation_player.play("Run")
 		else:
 			if(dist_abs <= RANGO_ATAQUE):
-				print("on attack range")
 				estado = estados.ATAQUE
 				ataque_activo = true
 				animation_player.play("Attack")

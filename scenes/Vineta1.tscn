@@ -397,6 +397,7 @@ tile_data = PoolIntArray( 327680, 4, 0, 327682, 6, 0, 327684, 6, 0, 327686, 6, 0
 
 [node name="Borders" type="TileMap" parent="."]
 tile_set = SubResource( 14 )
+collision_layer = 4
 format = 1
 tile_data = PoolIntArray( -262109, 1, 0, -262103, 1, 0, -262097, 1, 0, -262091, 1, 0, -262085, 1, 0, -262079, 1, 0, -262074, 1, 0, -262068, 1, 0, -262062, 1, 0, -262056, 1, 0, -262050, 1, 0, -262037, 1, 0, -262031, 1, 0, -262025, 1, 0, -262019, 1, 0, -262013, 1, 0, -262010, 1, 0, -262005, 0, 0, -196527, 0, 0, 81, 0, 0, 131211, 0, 0, 852049, 0, 0, 917643, 0, 0, 1245265, 0, 0, 1310859, 0, 0, 1638435, 1, 0, 1638441, 1, 0, 1638447, 1, 0, 1638453, 1, 0, 1638459, 1, 0, 1638465, 1, 0, 1638471, 1, 0, 1638477, 1, 0, 1638479, 1, 0, 1638485, 1, 0, 1638491, 1, 0, 1638497, 1, 0, 1638503, 1, 0, 1638509, 1, 0, 1638515, 1, 0, 1638521, 1, 0, 1638527, 1, 0, 1638533, 1, 0, 1769471, 0, 0, 1704020, 0, 0, 2162687, 0, 0, 2097236, 0, 0, 2555903, 0, 0, 2490452, 0, 0, 2949119, 0, 0, 2883668, 0, 0, 3342335, 0, 0, 3276884, 0, 0, 3604480, 1, 0, 3604486, 1, 0, 3604492, 1, 0, 3604498, 1, 0, 3604504, 1, 0, 3604510, 1, 0, 3604516, 1, 0, 3604522, 1, 0, 3604528, 1, 0, 3604534, 1, 0, 3604540, 1, 0, 3604546, 1, 0, 3604552, 1, 0, 3604558, 1, 0 )
 
@@ -436,10 +437,6 @@ position = Vector2( 4600, 568 )
 
 [node name="Waypoints" parent="." instance=ExtResource( 13 )]
 position = Vector2( 3026.38, 727.323 )
-editor_process = true
-line_color = Color( 0.228943, 0.710254, 0.945312, 1 )
-line_width = 10.0
-triangle_color = Color( 0.722656, 0.908997, 1, 1 )
 
 [node name="1" type="Position2D" parent="Waypoints"]
 position = Vector2( 1.29077, -207.61 )
@@ -454,10 +451,6 @@ waypoints_path = NodePath("../Waypoints2")
 
 [node name="Waypoints2" parent="." instance=ExtResource( 13 )]
 position = Vector2( 3339.05, 498.257 )
-editor_process = true
-line_color = Color( 0.228943, 0.710254, 0.945312, 1 )
-line_width = 10.0
-triangle_color = Color( 0.722656, 0.908997, 1, 1 )
 
 [node name="Position2D" type="Position2D" parent="Waypoints2"]
 position = Vector2( 470.545, 6.4754 )
@@ -474,6 +467,7 @@ shape = SubResource( 15 )
 position = Vector2( 124.964, 268.105 )
 
 [node name="TopWhite" type="StaticBody2D" parent="."]
+collision_layer = 8
 
 [node name="ColorRect" type="ColorRect" parent="TopWhite"]
 margin_left = -64.0
@@ -489,6 +483,7 @@ position = Vector2( 1056, -224 )
 shape = SubResource( 16 )
 
 [node name="LeftWhite" type="StaticBody2D" parent="."]
+collision_layer = 8
 
 [node name="ColorRect" type="ColorRect" parent="LeftWhite"]
 margin_left = -64.0

@@ -8,7 +8,7 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "attack1"
-length = 0.1
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -16,10 +16,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 1, 11 ]
+"values": [ 1, 1, 11 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("AttackHitbox/AttackHitboxShaped:position")
@@ -84,7 +84,7 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id=2]
 resource_name = "attack2"
-length = 0.1
+length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -92,10 +92,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 2, 11 ]
+"values": [ 2, 2, 11 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("AttackHitbox/AttackHitboxShaped:position")
@@ -172,7 +172,7 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "attack3"
-length = 0.1
+length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -180,10 +180,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 3, 11 ]
+"values": [ 3, 3, 11 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("AttackHitbox/AttackHitboxShaped:disabled")
@@ -408,7 +408,7 @@ tracks/1/path = NodePath("PlayerHitbox:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/keys = {
 "times": PoolRealArray( 0, 1, 1.3 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
@@ -493,7 +493,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 55.5373, 117.189 )
+extents = Vector2( 56.8221, 127.876 )
 
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 13.952, 36.1871 )
@@ -509,7 +509,7 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 4
-frame = 1
+frame = 13
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/attack1 = SubResource( 1 )
@@ -522,7 +522,7 @@ anims/jumping = SubResource( 7 )
 anims/running = SubResource( 8 )
 
 [node name="PlayerHitbox" type="CollisionShape2D" parent="."]
-position = Vector2( -10.7152, 7.80124 )
+position = Vector2( -10.7023, -22.622 )
 rotation = -0.000827134
 shape = SubResource( 9 )
 

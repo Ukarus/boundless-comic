@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export (int) var gravity = 1200
 export (int) var life = 300
-export var speed: = Vector2(300.0, 1000.0)
+export var speed: = Vector2(300.0, 800.0)
 const MAX_LIFE = 300
 const FLOOR_DETECT_DISTANCE = 40.0
 const FLOOR_NORMAL = Vector2.UP
@@ -12,6 +12,7 @@ const DASH_DISTANCE: = 100.0
 var _velocity: = Vector2.ZERO
 var attacks = ["attack1", "attack2", "attack3"]
 var currentAttackIndex = 0
+var firstWallTouch = false
 var functionParams = null
 var item_grab = false
 var dashing = false
@@ -107,6 +108,20 @@ func calculate_move_velocity(
 	) ->  Vector2:
 	var out: = linear_velocity
 	out.x = speed.x * direction.x
+
+	if is_on_wall() and !is_on_floor():
+		if !firstWallTouch:
+			firstWallTouch = true
+			out.y = 0.0
+			
+		if Input.is_action_just_pressed("ui_up") and sprite.scale.x != direction.x:
+			direction.y == -1.0
+			out.x = speed.x * direction.x * 2.0
+		gravity = 300
+	else:
+		firstWallTouch = false
+		gravity = 1200
+	
 	out.y += gravity * get_physics_process_delta_time()
 	if direction.y == -1.0:
 		out.y = speed.y * direction.y

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scenes/enemyB/ShooterPunk.tscn" type="PackedScene" id=7]
 [ext_resource path="res://art/background/exterior 2.png" type="Texture" id=8]
 [ext_resource path="res://scenes/Apple.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/enemy/BrawlFighter.tscn" type="PackedScene" id=10]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
@@ -56,7 +57,7 @@ position = Vector2( -5000.16, -435.407 )
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Punk1" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1920.11, 334.799 )
+position = Vector2( 1640, 352 )
 scale = Vector2( 1, 1 )
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
@@ -68,5 +69,8 @@ scale = Vector2( 1.05413, 2.12585 )
 texture = ExtResource( 8 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 2000, 520 )
+
+[node name="EnemyPunch" parent="." instance=ExtResource( 10 )]
+position = Vector2( 4104, 1464 )
 
 [editable path="Player"]
